@@ -3,8 +3,7 @@ package com.amr.project.model.entity;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
@@ -13,8 +12,20 @@ import javax.persistence.Table;
 @Builder
 public class Discount {
     //TODO скидка для постоянного покупателя
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int minOrder;
-    private int percentage;
+
+    @Column(name = "min_order")
+    private Integer minOrder;
+
+    @Column(name = "percentage")
+    private Integer percentage;
+
+    @Column(name = "fixed_discount")
+    private Integer fixedDiscount;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
     private User user;
 }
