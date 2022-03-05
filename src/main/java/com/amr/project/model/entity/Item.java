@@ -27,6 +27,8 @@ public class Item {
     inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CartItem cartItemInItem;
 
     private List<Image> images;
     private List<Review> reviews;

@@ -3,8 +3,7 @@ package com.amr.project.model.entity;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -24,6 +23,11 @@ public class Shop {
     private int count;
     private double rating;
     private User user;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cartItem_id")
+    private CartItem cartItem;
+
     private List<Discount> discounts;
     private boolean isModerated = false;
     private boolean isModerateAccept = false;
