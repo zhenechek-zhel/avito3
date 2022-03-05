@@ -41,21 +41,18 @@ public class Shop {
             fetch = FetchType.LAZY)
     @JoinColumn(name = "image_id")
     private Image logo;
-
+    private int count;
     private double rating;
     // уточнить имя для связанной колонки
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "shop")
-
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cartItem_id")
     private CartItem cartItem;
 
     private List<Discount> discounts;
-
     private boolean isModerated = false;
     private boolean isModerateAccept = false;
     private String moderatedRejectReason;
