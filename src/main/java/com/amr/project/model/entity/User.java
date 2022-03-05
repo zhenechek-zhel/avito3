@@ -27,7 +27,12 @@ public class User implements UserDetails {
     // нужны-ли они, возможно где-то вместо связи с ентити использовать id,
     // иначе есть вероятность попасть в констрейнты и не отстроить нормальную структуру
     // для взаимодействия с БД
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, unique = true)
     private Long id;
+
     private String email;
     private String username;
     private String password;
@@ -37,21 +42,37 @@ public class User implements UserDetails {
     private String firstName;
     private String lastName;
     private int age;
-    private List<Address> address;
+    private boolean isUsingTwoFactorAuth;
+    private String secret;
+    private Gender gender;
+    private Calendar birthday;
+
+    @ManyToMany
+    @JoinTable(name = "user_address",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "address_id"))
+    private Set<Address> address;
+
 
     @ManyToMany
     @JoinTable(name = "user_role",
-    joinColumns = @JoinColumn(name = "user_id"),
-    inverseJoinColumns = @JoinColumn(name = "role_id"))
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "user_id")
+    private Set<Image> images;
 
 
-    private Gender gender;
-    private Calendar birthday;
-    private Image images;
-    private List<Coupon> coupons;
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE})
+    @JoinTable(name = "user`s_coupons",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "coupon_id"))
+    private Set<Coupon> coupons;
 
 
     @OneToMany(
@@ -62,13 +83,37 @@ public class User implements UserDetails {
     private Set<CartItem> cart;
 
 
-    private List<Order> orders;
-    private List<Review> reviews;
-    private List<Shop> shops;
-    private Favorite favorite;
-    private List<Discount> discounts;
-    private boolean isUsingTwoFactorAuth;
-    private String secret;
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private Set<Order> orders;
+
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "user_id")
+    private Set<Review> reviews;
+
+
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinTable(name = "user_shop",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "shop_id"))
+    private Set<Shop> shops;
+
+
+    // private Favorite favorite;
+
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinTable(name = "user_discount",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "discount_id"))
+    private Set<Discount> discounts;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
