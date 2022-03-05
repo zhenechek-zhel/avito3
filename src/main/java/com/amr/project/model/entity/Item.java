@@ -34,6 +34,7 @@ public class Item {
     private double rating;
     private String description;
     private int discount;
+    @OneToMany
     private Shop shop;
     private boolean isModerated = false;
     private String moderatedRejectReason;
