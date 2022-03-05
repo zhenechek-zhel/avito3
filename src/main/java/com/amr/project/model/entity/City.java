@@ -4,6 +4,8 @@ import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
 
@@ -15,5 +17,6 @@ public class City {
     private Long id;
     private String name;
     private Country country;
+
     private List<Address> addresses;
 }

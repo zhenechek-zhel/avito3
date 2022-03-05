@@ -3,21 +3,31 @@ package com.amr.project.model.entity;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "item")
 @Data
 @Builder
 public class Item {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true)
     private Long id;
     private String name;
     private BigDecimal basePrice;
     private BigDecimal price;
-    private Category category;
+
+    @ManyToMany
+    @JoinTable(name = "item_category",
+    joinColumns = @JoinColumn(name = "item_id"),
+    inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Set<Category> categories;
+
+
     private List<Image> images;
     private List<Review> reviews;
     private int count;
