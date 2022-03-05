@@ -25,13 +25,7 @@ public class Discount {
     @Column(name = "fixed_discount")
     private Integer fixedDiscount;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "shop_id")
-    private Shop shop;
-
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
-
-
 }
