@@ -18,6 +18,8 @@ import java.util.Set;
 @NoArgsConstructor
 public class Role implements GrantedAuthority {
 
+
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
