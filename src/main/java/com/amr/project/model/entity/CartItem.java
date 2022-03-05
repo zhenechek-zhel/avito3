@@ -13,18 +13,16 @@ import java.util.Set;
 @Builder
 public class CartItem {
     //TODO товары в корзине, продумать какие поля им нужны, нужны-ли связи?
-
-    @Id
-    @Column(name = "id", nullable = false, unique = true)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-
-    @Column(name = "quantity")
+    private String anonID;
     private int quantity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
+    @OneToMany(
+            mappedBy = "cart",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private Set<User> users;
 
     @OneToOne(mappedBy = "cartItem", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
