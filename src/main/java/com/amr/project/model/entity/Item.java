@@ -22,13 +22,17 @@ public class Item {
     @Column(name = "id", unique = true)
     private Long id;
     private String name;
+    private BigDecimal basePrice;
     private BigDecimal price;
 
     @ManyToMany
     @JoinTable(name = "item_category",
-            joinColumns = @JoinColumn(name = "item_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    joinColumns = @JoinColumn(name = "item_id"),
+    inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CartItem cartItemInItem;
 
     @ManyToMany
     @JoinTable(name = "item_image", joinColumns = @JoinColumn(name = "item_id"),
@@ -37,7 +41,6 @@ public class Item {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "item")
     private List<Review> reviews;
-
     private int count;
     private double rating;
     private String description;

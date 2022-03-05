@@ -49,6 +49,11 @@ public class Shop {
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "shop")
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cartItem_id")
+    private CartItem cartItem;
+
     private List<Discount> discounts;
 
     private boolean isModerated = false;
