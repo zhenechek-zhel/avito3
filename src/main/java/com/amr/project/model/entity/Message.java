@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "message")
@@ -11,10 +12,11 @@ import javax.persistence.*;
 @Builder
 public class Message {
     @Id
-    @GeneratedValue
     private Long id;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Chat chat;
+    @ManyToMany
+
+    private Set<Chat> chats;
+
     private User to;
     private User from;
     private String textMessage;
