@@ -18,7 +18,9 @@ public class CartItem {
     @Column(name = "id", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String anonID;
+
+
+    @Column(name = "quantity")
     private int quantity;
 
     @OneToMany(
