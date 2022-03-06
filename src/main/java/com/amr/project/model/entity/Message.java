@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Table(name = "message")
@@ -17,16 +15,19 @@ import java.util.Set;
 @AllArgsConstructor
 
 public class Message {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
     private Long id;
-    @Column
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Chat chat;
+
+
+    @Column(name = "user_to")
+    private Long userIdTo;
+
+
+    @Column(name = "user_from")
+    private Long userIdFrom;
+
     private String textMessage;
-    @Column
-    private Date date;
-    @OneToOne
-    private User to;
-    @OneToOne
-    private User from;
+    private boolean viewed;
 }

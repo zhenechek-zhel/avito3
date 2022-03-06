@@ -19,10 +19,7 @@ public class Chat {
             joinColumns = @JoinColumn(name = "chat_id"),
             inverseJoinColumns = @JoinColumn(name = "members_id"))
     private List<User> members;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "chat_messages",
-            joinColumns = @JoinColumn(name = "chat_id"),
-            inverseJoinColumns = @JoinColumn(name = "messages_id"))
+    @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Message> messages;
     private Long hash;
     public Chat(List<User> members) {
