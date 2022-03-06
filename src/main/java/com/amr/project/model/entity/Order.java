@@ -4,10 +4,7 @@ import com.amr.project.model.enums.Status;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.List;
@@ -17,14 +14,43 @@ import java.util.List;
 @Data
 @Builder
 public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private Long id;
-    private List<Item> items;
-    private Calendar date;
+
+    @ManyToMany
+    private List<Item> items;//список заказанных товаров
+
+    @Column(name = "data", nullable = false)
+    private Calendar orderDate;//дата заказа
+
+    @Column(name = "delyv_data")
+    private Calendar expectedDeliveryDate;//ожидаемая дата доставки
+
+    @Column(name = "descript")
+    private String description;//комментарий к заказу со стороны user'a
+
     @Enumerated(EnumType.ORDINAL)
-    private Status status;
-    private Address address;
-    private BigDecimal total;
+    @Column(name = "status")
+    private Status status;//статус заказа
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
-    private String buyerName;
-    private String buyerPhone;
+
+    /*@Column(name = "")
+    private Shop shop;//магазин-продавец (или магазины?) - подумать над необходимостью данного поля (информация продублирована в items)
+*/
+
+    @ManyToOne
+    @JoinColumn(name = "delivery_address_ID")
+    private Address deliveryAddress;//адрес доставки товара (указывается user'ом)
+
+    @Column(name = "total")
+    private BigDecimal grandTotal;
+
+    @Column(name = "currency")
+    private String currency;
+
+    public Order() {}
 }
