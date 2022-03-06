@@ -14,7 +14,6 @@ public class Coupon {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private Calendar start;
     private Calendar end;
 
