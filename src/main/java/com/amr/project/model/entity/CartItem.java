@@ -23,12 +23,8 @@ public class CartItem {
     @Column(name = "quantity")
     private int quantity;
 
-    @OneToMany(
-            mappedBy = "cart",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private Set<User> users;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 
 
     @OneToOne(mappedBy = "cartItem", cascade = CascadeType.ALL,
