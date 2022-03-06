@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "shop")
@@ -26,6 +27,10 @@ public class Shop {
     private String phone;
     @Column
     private String description;
+
+    private int count;
+
+    private double rating;
     // уточнить имя для связанной колонки
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id")
@@ -41,8 +46,7 @@ public class Shop {
             fetch = FetchType.LAZY)
     @JoinColumn(name = "image_id")
     private Image logo;
-    private int count;
-    private double rating;
+
     // уточнить имя для связанной колонки
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -51,6 +55,13 @@ public class Shop {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cartItem_id")
     private CartItem cartItem;
+
+    @OneToMany(
+            mappedBy = "shop",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private Set<Feedback> feedback;
 
     private List<Discount> discounts;
     private boolean isModerated = false;

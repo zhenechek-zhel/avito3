@@ -65,7 +65,7 @@ public class User implements UserDetails {
     private List<Order> orders;
     private List<Review> reviews;
     private List<Shop> shops;
-    private Favorite favorite;
+   // private Favorite favorite;
     private List<Discount> discounts;
     private boolean isUsingTwoFactorAuth;
     private String secret;
