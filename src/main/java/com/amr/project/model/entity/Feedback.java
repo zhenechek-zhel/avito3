@@ -23,4 +23,7 @@ public class Feedback {
     private String fullText;
     private LocalDateTime dateTime;
     private String username;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Shop shop;
 }
