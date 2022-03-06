@@ -12,8 +12,14 @@ import javax.persistence.Table;
 @Builder
 public class CartItem {
     //TODO товары в корзине, продумать какие поля им нужны, нужны-ли связи?
+
+    @Id
+    @Column(name = "id", nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String anonID;
+
+
+    @Column(name = "quantity")
     private int quantity;
 
     @OneToMany(
