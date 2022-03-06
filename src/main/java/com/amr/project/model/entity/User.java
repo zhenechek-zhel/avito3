@@ -53,8 +53,13 @@ public class User implements UserDetails {
     private Image images;
     private List<Coupon> coupons;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private CartItem cart;
+
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private Set<CartItem> cart;
 
 
     private List<Order> orders;
