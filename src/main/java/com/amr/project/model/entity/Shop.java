@@ -26,7 +26,7 @@ public class Shop {
     private String phone;
     @Column
     private String description;
-// уточнить имя для связанной колонки
+    // уточнить имя для связанной колонки
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id")
     private Country location;
@@ -37,8 +37,11 @@ public class Shop {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "shop")
     private List<Review> reviews;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    @JoinColumn(name = "image_id")
     private Image logo;
+
     private double rating;
     // уточнить имя для связанной колонки
     @ManyToOne(fetch = FetchType.LAZY)
