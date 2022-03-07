@@ -22,11 +22,11 @@ public class Message {
     @ManyToOne(fetch = FetchType.LAZY)
     private Chat chat;
 
-
+    //TODO реализовать связь с Юзером
     @Column(name = "user_to")
     private Long userIdTo;
 
-
+    //TODO реализовать связь с Юзером
     @Column(name = "user_from")
     private Long userIdFrom;
 
