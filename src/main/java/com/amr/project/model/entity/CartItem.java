@@ -19,12 +19,13 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @Column(name = "quantity")
     private int quantity;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
+
 
     @OneToOne(mappedBy = "cartItem", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)

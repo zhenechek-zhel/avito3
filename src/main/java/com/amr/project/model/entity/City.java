@@ -22,11 +22,14 @@ public class City {
 
     private String name;
 
+
+
     @ManyToOne
     @JoinTable(name = "country_city",
     joinColumns = @JoinColumn(name = "city_id"),
     inverseJoinColumns = @JoinColumn(name = "country_id"))
     private Country country;
+
 
     @OneToMany(mappedBy = "city")
     private List<Address> addresses;

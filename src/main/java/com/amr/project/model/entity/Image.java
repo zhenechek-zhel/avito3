@@ -18,12 +18,13 @@ public class Image {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-
     private byte[] picture;
     private Boolean isMain = false;
 
+
     @OneToOne(mappedBy = "logo")
     private Shop shop;
+
 
     @ManyToMany(mappedBy = "images")
     private List<Item> itemsImage;
