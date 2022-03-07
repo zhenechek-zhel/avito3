@@ -32,29 +32,38 @@ public class Shop {
 
     private double rating;
     // уточнить имя для связанной колонки
+
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id")
     private Country location;
 
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "shop")
     private List<Item> items;
 
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "shop")
     private List<Review> reviews;
+
 
     @OneToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
     @JoinColumn(name = "image_id")
     private Image logo;
 
+
     // уточнить имя для связанной колонки
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cartItem_id")
     private CartItem cartItem;
+
 
     @OneToMany(
             mappedBy = "shop",
@@ -63,7 +72,17 @@ public class Shop {
     )
     private Set<Feedback> feedback;
 
-    private List<Discount> discounts;
+
+    @ManyToMany(mappedBy = "shops")
+    private Set<User> users;
+
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "shop_id")
+    private Set<Discount> discounts;
+
+
+
     private boolean isModerated = false;
     private boolean isModerateAccept = false;
     private String moderatedRejectReason;

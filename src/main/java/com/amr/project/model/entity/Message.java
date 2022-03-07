@@ -15,6 +15,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 
 public class Message {
+    @Id
+    @GeneratedValue
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)

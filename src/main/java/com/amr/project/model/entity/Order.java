@@ -38,6 +38,9 @@ public class Order {
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User userInOrder;
+
     /*@Column(name = "")
     private Shop shop;//магазин-продавец (или магазины?) - подумать над необходимостью данного поля (информация продублирована в items)
 */

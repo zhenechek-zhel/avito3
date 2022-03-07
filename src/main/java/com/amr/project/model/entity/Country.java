@@ -24,6 +24,8 @@ public class Country {
     @Column(name = "name")
     private String name;
 
+
+
     @OneToMany(mappedBy = "country")
     @JoinTable(name = "country_city",
             joinColumns = @JoinColumn(name = "country_id"),

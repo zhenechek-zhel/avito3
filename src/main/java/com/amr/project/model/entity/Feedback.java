@@ -24,6 +24,8 @@ public class Feedback {
     private LocalDateTime dateTime;
     private String username;
 
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Shop shop;
 }
