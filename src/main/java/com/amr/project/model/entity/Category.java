@@ -21,6 +21,8 @@ public class Category {
     @Column(name = "name", unique = true)
     private String name;
 
+
+
     @ManyToMany(mappedBy = "categories")
     private Set<Item> items;
 
