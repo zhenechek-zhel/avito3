@@ -43,11 +43,8 @@ public class User implements UserDetails {
     private Gender gender;
     private Calendar birthday;
 
-    @ManyToMany
-    @JoinTable(name = "user_address",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "address_id"))
-    private Set<Address> address;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Address address;
 
 
     @ManyToMany
@@ -62,10 +59,10 @@ public class User implements UserDetails {
     private Set<Image> images;
 
 
-    @ManyToMany(cascade = {
+    @OneToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE})
-    @JoinTable(name = "user`s_coupons",
+    @JoinTable(name = "user_coupons",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "coupon_id"))
     private Set<Coupon> coupons;
@@ -104,11 +101,14 @@ public class User implements UserDetails {
 
     // private Favorite favorite;
 
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinTable(name = "user_discount",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "discount_id"))
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumns({@JoinColumn(name = "user_id"),
+            @JoinColumn(name = "discount_id")})
     private Set<Discount> discounts;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private Favorite favorite;
 
 
     @Override

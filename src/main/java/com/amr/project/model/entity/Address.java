@@ -30,7 +30,11 @@ public class Address {
     private Country country;
 
 
-    @ManyToMany(mappedBy = "address")
+    @OneToMany(
+            mappedBy = "address",
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
+            orphanRemoval = true
+    )
     private Set<User> users;
 
     public Address() {

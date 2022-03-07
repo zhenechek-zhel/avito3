@@ -18,6 +18,8 @@ public class Category {
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
+
+
     @Column(name = "name", unique = true)
     private String name;
 

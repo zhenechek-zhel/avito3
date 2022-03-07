@@ -37,17 +37,21 @@ public class Item {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private CartItem cartItemInItem;
+    private CartItem cartItem;
 
 
     @ManyToMany
     @JoinTable(name = "item_image", joinColumns = @JoinColumn(name = "item_id"),
             inverseJoinColumns = @JoinColumn(name = "image_id"))
-    private List<Image> images;
+    private Set<Image> images;
 
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "item")
-    private List<Review> reviews;
+    private Set<Review> reviews;
+
+
+    @ManyToMany(mappedBy = "items")
+    private Set<Favorite> favorites;
 
 
     @ManyToOne(fetch = FetchType.LAZY)

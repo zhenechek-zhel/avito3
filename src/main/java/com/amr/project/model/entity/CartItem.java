@@ -33,9 +33,9 @@ public class CartItem {
 
 
     @OneToMany(
-            mappedBy = "cartItemInItem",
+            mappedBy = "cartItem",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<Item> itemList;
+    private Set<Item> itemList;
 }

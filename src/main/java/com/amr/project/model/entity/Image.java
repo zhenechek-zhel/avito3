@@ -28,4 +28,8 @@ public class Image {
 
     @ManyToMany(mappedBy = "images")
     private List<Item> itemsImage;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 }

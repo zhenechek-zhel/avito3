@@ -27,19 +27,13 @@ public class Discount {
     private Integer fixedDiscount;
 
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "shop_id")
     private Shop shop;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
     private User user;
-
-
-    @ManyToMany(mappedBy = "discounts")
-    private Set<User> users;
 
 
 }

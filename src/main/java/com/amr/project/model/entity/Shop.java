@@ -41,11 +41,11 @@ public class Shop {
 
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "shop")
-    private List<Item> items;
+    private Set<Item> items;
 
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "shop")
-    private List<Review> reviews;
+    private Set<Review> reviews;
 
 
     @OneToOne(cascade = CascadeType.ALL,
@@ -80,6 +80,9 @@ public class Shop {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "shop_id")
     private Set<Discount> discounts;
+
+    @ManyToMany(mappedBy = "shops")
+    private Set<Favorite> favorites;
 
 
 

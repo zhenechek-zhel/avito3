@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "country")
@@ -30,5 +31,5 @@ public class Country {
     @JoinTable(name = "country_city",
             joinColumns = @JoinColumn(name = "country_id"),
             inverseJoinColumns = @JoinColumn(name = "city_id"))
-    private List<City> cities;
+    private Set<City> cities;
 }

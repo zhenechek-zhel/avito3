@@ -26,6 +26,6 @@ public class Coupon {
     private Shop shop;
 
 
-    @ManyToMany(mappedBy = "coupons")
-    private Set<User> usersInCoupon;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 }

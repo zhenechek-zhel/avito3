@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "chat")
@@ -21,18 +22,16 @@ public class Chat {
     @JoinTable(name = "chat_members",
             joinColumns = @JoinColumn(name = "chat_id"),
             inverseJoinColumns = @JoinColumn(name = "members_id"))
-    private List<User> members;
+    private Set<User> members;
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "chat_messages",
-            joinColumns = @JoinColumn(name = "chat_id"),
-            inverseJoinColumns = @JoinColumn(name = "messages_id"))
-    private List<Message> messages;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "chat_id")
+    private Set<Message> messages;
 
 
 
-    public Chat(List<User> members) {
+    public Chat(Set<User> members) {
         this.members = members;
         this.hash = members.stream().map(User::hashCode).mapToLong(e -> e).sum();
     }

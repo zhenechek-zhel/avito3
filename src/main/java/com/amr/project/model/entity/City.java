@@ -25,7 +25,7 @@ public class City {
 
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Country country;
 
 
