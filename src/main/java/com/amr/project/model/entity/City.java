@@ -20,22 +20,12 @@ public class City {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(name = "name")
     private String name;
 
     @ManyToOne
-    @JoinTable(name = "country_city",
-    joinColumns = @JoinColumn(name = "city_id"),
-    inverseJoinColumns = @JoinColumn(name = "country_id"))
     private Country country;
 
     @OneToMany(mappedBy = "city")
     private List<Address> addresses;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

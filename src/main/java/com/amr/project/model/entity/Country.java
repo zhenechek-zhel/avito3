@@ -15,12 +15,18 @@ import java.util.List;
 @Data
 @Builder
 public class Country {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
+
+    @Column(name = "name")
     private String name;
 
     @OneToMany(mappedBy = "country")
+    @JoinTable(name = "country_city",
+            joinColumns = @JoinColumn(name = "country_id"),
+            inverseJoinColumns = @JoinColumn(name = "city_id"))
     private List<City> cities;
 }

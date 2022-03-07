@@ -64,6 +64,7 @@ public class Shop {
     private Set<Feedback> feedback;
 
     private List<Discount> discounts;
+
     private boolean isModerated = false;
     private boolean isModerateAccept = false;
     private String moderatedRejectReason;
