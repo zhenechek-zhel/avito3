@@ -15,6 +15,7 @@ import java.util.Set;
 @Table(name = "user")
 @Data
 @Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @ToString(of = {"id", "email", "username", "password", "phone", "firstName", "lastName", "age", "gender"})
 @EqualsAndHashCode(of = {"id", "email", "username"})
@@ -102,8 +103,7 @@ public class User implements UserDetails {
     // private Favorite favorite;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumns({@JoinColumn(name = "user_id"),
-            @JoinColumn(name = "discount_id")})
+    @JoinColumn(name = "user_id")
     private Set<Discount> discounts;
 
     @OneToOne

@@ -1,7 +1,9 @@
 package com.amr.project.model.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -10,6 +12,8 @@ import java.util.Set;
 @Table(name = "favorite")
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Favorite {
     //TODO избранные товары пользователя
     @Id
@@ -30,6 +34,6 @@ public class Favorite {
     private Set<Item> items;
 
 
-    @OneToOne(mappedBy = "favorites", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "favorite", fetch = FetchType.LAZY)
     private User user;
 }
