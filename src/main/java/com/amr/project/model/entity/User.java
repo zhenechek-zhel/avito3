@@ -1,12 +1,13 @@
 package com.amr.project.model.entity;
 
+import com.amr.project.model.enums.Gender;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.Set;
+import java.io.Serializable;
+import java.util.*;
 
 @Entity
 @Table(name = "user")
@@ -15,13 +16,13 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(of = {"id", "email", "username", "password"})
-@EqualsAndHashCode(of = {"id", "email", "username"})
-public class User implements UserDetails {
+@EqualsAndHashCode(of = {"email", "username"})
+public class User implements UserDetails, Serializable {
     //TODO надо продумать юзера, слишком много у него связей,
     // нужны-ли они, возможно где-то вместо связи с ентити использовать id,
     // иначе есть вероятность попасть в констрейнты и не отстроить нормальную структуру
     // для взаимодействия с БД
-    // что-то ссылается на само себя в юзере()
+    // что-то ссылается на само себя в юзере() - сделано
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,6 +36,11 @@ public class User implements UserDetails {
     private String activationCode;
     private boolean isUsingTwoFactorAuth;
     private String secret;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+    private Calendar birthday;
+
     @OneToOne
     @JoinColumn(name = "user_info_id")
     private UserInfo userInfo;
@@ -93,7 +99,17 @@ public class User implements UserDetails {
     @JoinTable(name = "user_shop",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "shop_id"))
-    private Set<Shop> shops;
+    private Set<Shop> shops = new HashSet<>();
+
+
+
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "user_chat",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "chat_id"))
+    private Set<Chat> chats = new HashSet<>();
+
 
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)

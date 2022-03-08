@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -53,13 +54,6 @@ public class Shop {
     @JoinColumn(name = "image_id")
     private Image logo;
 
-
-    // уточнить имя для связанной колонки
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
-
-
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cartItem_id")
     private CartItem cartItem;
@@ -74,7 +68,7 @@ public class Shop {
 
 
     @ManyToMany(mappedBy = "shops")
-    private Set<User> users;
+    private Set<User> users = new HashSet<>();
 
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)

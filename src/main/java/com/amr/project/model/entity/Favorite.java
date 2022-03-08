@@ -27,7 +27,7 @@ public class Favorite {
 
 
     @ManyToMany
-    @JoinTable(name = "item_shop",
+    @JoinTable(name = "favorite_item",
             joinColumns = @JoinColumn(name = "favorite_id"),
             inverseJoinColumns = @JoinColumn(name = "item_id"))
     private Set<Item> items;
