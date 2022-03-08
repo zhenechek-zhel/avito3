@@ -125,15 +125,6 @@ public class User implements UserDetails, Serializable {
 
 
 
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinTable(name = "user_chat",
-                joinColumns = @JoinColumn(name = "user_id"),
-                inverseJoinColumns = @JoinColumn(name = "chat_id"))
-    private Set<Chat> chats;
-
-
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
