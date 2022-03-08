@@ -16,7 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 
 public class Message {
-    //TODO добавить поле Дата - фиксация времени создания сообщения
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
