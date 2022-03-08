@@ -17,7 +17,7 @@ import java.util.Set;
 public class Favorite {
     //TODO избранные товары пользователя
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToMany
@@ -28,12 +28,15 @@ public class Favorite {
 
 
     @ManyToMany
-    @JoinTable(name = "item_shop",
+    @JoinTable(name = "favorite_item",
             joinColumns = @JoinColumn(name = "favorite_id"),
             inverseJoinColumns = @JoinColumn(name = "item_id"))
     private Set<Item> items;
 
 
-    @OneToOne(mappedBy = "favorite", fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @MapsId
+    @JoinColumn(name = "id")
     private User user;
 }

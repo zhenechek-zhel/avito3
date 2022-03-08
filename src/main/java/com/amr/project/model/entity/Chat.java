@@ -1,12 +1,10 @@
 package com.amr.project.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -15,18 +13,16 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Chat {
+public class Chat implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
     private Long hash;
 
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "chat_members",
-            joinColumns = @JoinColumn(name = "chat_id"),
-            inverseJoinColumns = @JoinColumn(name = "members_id"))
-    private Set<User> members;
+    //TODO реализовать обратную связь (с User)
+    @ManyToMany(mappedBy = "chats")
+        private Set<User> users = new HashSet<>();
 
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -36,7 +32,7 @@ public class Chat {
 
 
     public Chat(Set<User> members) {
-        this.members = members;
+        this.users = members;
         this.hash = members.stream().map(User::hashCode).mapToLong(e -> e).sum();
     }
 }

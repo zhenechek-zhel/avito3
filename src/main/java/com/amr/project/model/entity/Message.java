@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "message")
@@ -15,9 +16,12 @@ import javax.persistence.*;
 @AllArgsConstructor
 
 public class Message {
+    //TODO добавить поле Дата - фиксация времени создания сообщения
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private Date dateTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Chat chat;
