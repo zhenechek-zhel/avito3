@@ -117,6 +117,7 @@ public class User implements UserDetails, Serializable {
     private Set<Discount> discounts;
 
     @OneToOne
+    @JoinColumn(name = "user_id")
     private Favorite favorite;
 
     @OneToMany
