@@ -22,13 +22,13 @@ public class Message {
     @ManyToOne(fetch = FetchType.LAZY)
     private Chat chat;
 
-    //TODO реализовать связь с Юзером
-    @Column(name = "user_to")
-    private Long userIdTo;
+    @OneToOne
+    @JoinColumn(name = "userTo_id")
+    private User userTo;
 
-    //TODO реализовать связь с Юзером
-    @Column(name = "user_from")
-    private Long userIdFrom;
+    @OneToOne
+    @JoinColumn(name = "userFrom_id")
+    private User userFrom;
 
     private String textMessage;
     private boolean viewed;

@@ -1,14 +1,11 @@
 package com.amr.project.model.entity;
 
-import com.amr.project.model.enums.Gender;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Calendar;
 import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,7 +14,7 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(of = {"id", "email", "username", "password", "phone", "firstName", "lastName", "age", "gender"})
+@ToString(of = {"id", "email", "username", "password"})
 @EqualsAndHashCode(of = {"id", "email", "username"})
 public class User implements UserDetails {
     //TODO надо продумать юзера, слишком много у него связей,
@@ -36,14 +33,12 @@ public class User implements UserDetails {
     private String password;
     private boolean activate;
     private String activationCode;
-    private String phone;
-    private String firstName;
-    private String lastName;
-    private int age;
     private boolean isUsingTwoFactorAuth;
     private String secret;
-    private Gender gender;
-    private Calendar birthday;
+    @OneToOne
+    @JoinColumn(name = "user_info_id")
+    private UserInfo userInfo;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Address address;
@@ -100,8 +95,6 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "shop_id"))
     private Set<Shop> shops;
 
-
-    // private Favorite favorite;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "user_id")
