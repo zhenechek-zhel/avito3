@@ -19,6 +19,7 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
+
     private String cityIndex;
     private String street;
     private String house;
@@ -28,11 +29,9 @@ public class Address {
     @JoinColumn(name = "city_ID")
     private City city;
 
-
     @ManyToOne
     @JoinColumn(name = "country_id")
     private Country country;
-
 
     @OneToMany(
             mappedBy = "address",
@@ -40,6 +39,5 @@ public class Address {
             orphanRemoval = true
     )
     private Set<User> users;
-
 
 }
