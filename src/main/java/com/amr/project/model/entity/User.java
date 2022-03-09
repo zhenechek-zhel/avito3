@@ -105,7 +105,7 @@ public class User implements UserDetails {
     private Favorite favorite;
 
     @OneToMany
-    @JoinColumn(name = "userFrom_id")
+    @JoinColumn(name = "user_from_id")
     private Set<Message> messages;
 
 
