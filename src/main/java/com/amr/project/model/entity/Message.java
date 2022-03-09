@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "message")
 @Data
@@ -17,14 +18,17 @@ import javax.persistence.*;
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @Column
     private Chat chat;
-
     @ManyToOne
+    @Column
     private User userFrom;
-
+    @Column
     private String textMessage;
+    @Column
     private boolean viewed;
 }
