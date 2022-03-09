@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 
 @Entity
@@ -21,12 +22,17 @@ public class Message {
     @Column
     private Long id;
 
+    @Column(name = "date")
+    private Date date;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column
     private Chat chat;
-    @ManyToOne
-    @Column
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private User userFrom;
+
+
     @Column
     private String textMessage;
     @Column

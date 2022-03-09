@@ -17,7 +17,6 @@ import java.util.Set;
 public class Favorite {
     //TODO избранные товары пользователя
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToMany
@@ -34,6 +33,7 @@ public class Favorite {
     private Set<Item> items;
 
 
-    @OneToOne(mappedBy = "favorite", fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @MapsId
     private User user;
 }

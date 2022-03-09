@@ -85,6 +85,10 @@ public class Shop {
     private Set<Favorite> favorites;
 
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Address address;
+
+
 
     private boolean isModerated = false;
     private boolean isModerateAccept = false;

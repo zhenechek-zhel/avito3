@@ -101,7 +101,6 @@ public class User implements UserDetails {
     private Set<Discount> discounts;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
     private Favorite favorite;
 
     @OneToMany
@@ -110,9 +109,11 @@ public class User implements UserDetails {
 
 
 
-
-
-
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinTable(name = "user_chat",
+                joinColumns = @JoinColumn(name = "user_id"),
+                inverseJoinColumns = @JoinColumn(name = "chat_id"))
+    private Set<Chat> chats;
 
 
 

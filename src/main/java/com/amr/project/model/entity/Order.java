@@ -42,15 +42,13 @@ public class Order {
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Address address;
+
 
     /*@Column(name = "")
     private Shop shop;//магазин-продавец (или магазины?) - подумать над необходимостью данного поля (информация продублирована в items)
 */
-
-    @ManyToOne
-    @JoinColumn(name = "delivery_address_ID")
-    private Address deliveryAddress;//адрес доставки товара (указывается user'ом)
-
     @Column(name = "total")
     private BigDecimal grandTotal;
 

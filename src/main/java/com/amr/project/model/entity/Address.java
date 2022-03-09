@@ -29,11 +29,6 @@ public class Address {
     private City city;
 
 
-    @ManyToOne
-    @JoinColumn(name = "country_id")
-    private Country country;
-
-
     @OneToMany(
             mappedBy = "address",
             cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
@@ -42,4 +37,9 @@ public class Address {
     private Set<User> users;
 
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "address")
+    private Set<Shop> shops;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "address")
+    private Set<Order> orders;
 }

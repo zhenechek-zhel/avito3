@@ -22,21 +22,17 @@ public class Chat {
     private Long hash;
 
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "chat_members",
-            joinColumns = @JoinColumn(name = "chat_id"),
-            inverseJoinColumns = @JoinColumn(name = "members_id"))
-    private Set<User> members;
-
-
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "chat_id")
     private Set<Message> messages;
 
+    @ManyToMany(mappedBy = "chats")
+    private Set<User> users;
+
 
 
     public Chat(Set<User> members) {
-        this.members = members;
+        this.users = members;
         this.hash = members.stream().map(User::hashCode).mapToLong(e -> e).sum();
     }
 }
