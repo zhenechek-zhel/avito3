@@ -104,6 +104,10 @@ public class User implements UserDetails {
     @JoinColumn(name = "user_id")
     private Favorite favorite;
 
+    @OneToMany
+    @JoinColumn(name = "userFrom_id")
+    private Set<Message> messages;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -22,12 +22,7 @@ public class Message {
     @ManyToOne(fetch = FetchType.LAZY)
     private Chat chat;
 
-    @OneToOne
-    @JoinColumn(name = "userTo_id")
-    private User userTo;
-
-    @OneToOne
-    @JoinColumn(name = "userFrom_id")
+    @ManyToOne
     private User userFrom;
 
     private String textMessage;
