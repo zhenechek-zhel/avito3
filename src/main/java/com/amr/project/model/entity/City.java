@@ -28,7 +28,4 @@ public class City {
     @ManyToOne(fetch = FetchType.LAZY)
     private Country country;
 
-
-    @OneToMany(mappedBy = "city")
-    private List<Address> addresses;
 }

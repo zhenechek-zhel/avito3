@@ -27,9 +27,6 @@ public class Country {
 
 
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "country_city",
-            joinColumns = @JoinColumn(name = "country_id"),
-            inverseJoinColumns = @JoinColumn(name = "city_id"))
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "country")
     private Set<City> cities;
 }
