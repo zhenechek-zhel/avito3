@@ -33,7 +33,4 @@ public class Image {
     private Shop shop;
 
 
-    @ManyToMany(mappedBy = "images")
-    private List<Item> itemsImage;
-
 }

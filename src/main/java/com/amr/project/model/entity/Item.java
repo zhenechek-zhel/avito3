@@ -31,21 +31,20 @@ public class Item {
     private String description;
     private int discount;
 
-    @ManyToMany
-    @JoinTable(name = "item_category",
-    joinColumns = @JoinColumn(name = "item_id"),
-    inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private Set<Category> categories;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
 
 
     @ManyToOne(fetch = FetchType.LAZY)
     private CartItem cartItem;
 
 
-    @ManyToMany
-    @JoinTable(name = "item_image",
-            joinColumns = @JoinColumn(name = "item_id"),
-            inverseJoinColumns = @JoinColumn(name = "image_id"))
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    @JoinColumn(name = "item_id")
     private Set<Image> images;
 
 
@@ -66,7 +65,6 @@ public class Item {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Shop shop;
-
 
 
     private boolean isModerated = false;

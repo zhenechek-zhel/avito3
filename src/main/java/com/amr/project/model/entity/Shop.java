@@ -59,8 +59,8 @@ public class Shop {
     private Image logo;
 
 
-    @ManyToMany(mappedBy = "shops")
-    private Set<User> users;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 
 
     @OneToOne(mappedBy = "shop", cascade = CascadeType.ALL,
@@ -76,7 +76,8 @@ public class Shop {
     private Set<Feedback> feedback;
 
 
-    @OneToMany(mappedBy = "shop",
+    @OneToMany(
+            mappedBy = "shop",
             cascade = {CascadeType.PERSIST,
                     CascadeType.MERGE,
                     CascadeType.REFRESH,
@@ -100,9 +101,6 @@ public class Shop {
     @JoinColumn(name = "shop_id")
     private Set<Coupon> coupons;
 
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private City city;
 
 
     private boolean isModerated = false;

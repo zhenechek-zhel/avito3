@@ -40,14 +40,4 @@ public class City {
 
 
 
-    @OneToMany(
-            mappedBy = "city",
-            cascade = {CascadeType.PERSIST,
-                    CascadeType.MERGE,
-                    CascadeType.REFRESH,
-                    CascadeType.DETACH},
-            orphanRemoval = true
-    )
-    private Set<Shop> shops;
-
 }

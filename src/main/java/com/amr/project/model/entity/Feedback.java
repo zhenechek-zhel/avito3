@@ -1,7 +1,9 @@
 package com.amr.project.model.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -10,6 +12,8 @@ import java.time.LocalDateTime;
 @Entity
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "feedback")
 public class Feedback {
     //TODO обратная связь от покупателей (книга жалоб и предложений :))
@@ -28,4 +32,8 @@ public class Feedback {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Shop shop;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
+
 }

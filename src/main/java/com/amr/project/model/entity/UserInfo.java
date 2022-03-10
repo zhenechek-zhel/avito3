@@ -24,7 +24,9 @@ public class UserInfo {
     private String firstName;
     private String lastName;
     private int age;
+    @Enumerated(EnumType.STRING)
     private Gender gender;
+
     private Calendar birthday;
 
     @OneToOne(fetch = FetchType.LAZY)

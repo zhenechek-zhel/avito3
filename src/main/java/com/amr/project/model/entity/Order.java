@@ -65,10 +65,5 @@ public class Order {
     private Address address;
 
 
-    /*@Column(name = "")
-    private Shop shop;//магазин-продавец (или магазины?) - подумать над необходимостью данного поля (информация продублирована в items)
-*/
-
-
 
 }

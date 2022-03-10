@@ -1,5 +1,7 @@
 package com.amr.project.model.entity;
 
+import com.amr.project.model.enums.Roles;
+import com.stripe.model.BalanceTransaction;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -40,6 +42,8 @@ public class User implements UserDetails {
     private boolean isUsingTwoFactorAuth;
     private String secret;
 
+    @Enumerated(EnumType.STRING)
+    private Roles role;
 
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
@@ -56,11 +60,7 @@ public class User implements UserDetails {
     private Address address;
 
 
-    @ManyToMany
-    @JoinTable(name = "user_role",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+
 
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -71,13 +71,12 @@ public class User implements UserDetails {
     @OneToMany(
             mappedBy = "user",
             cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE,
-            CascadeType.DETACH,
-            CascadeType.REFRESH},
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE,
+                    CascadeType.DETACH,
+                    CascadeType.REFRESH},
             orphanRemoval = true)
     private Set<Coupon> coupons;
-
 
 
     @OneToMany(
@@ -104,10 +103,15 @@ public class User implements UserDetails {
     private Set<Review> reviews;
 
 
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinTable(name = "user_shop",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "shop_id"))
+    @OneToMany(
+            mappedBy = "user",
+            cascade = {
+                    CascadeType.MERGE,
+                    CascadeType.PERSIST,
+                    CascadeType.DETACH,
+                    CascadeType.REFRESH},
+            orphanRemoval = true
+    )
     private Set<Shop> shops;
 
 
@@ -115,7 +119,6 @@ public class User implements UserDetails {
             orphanRemoval = true)
     @JoinColumn(name = "user_id")
     private Set<Discount> discounts;
-
 
 
     @OneToMany(
@@ -126,19 +129,27 @@ public class User implements UserDetails {
     private Set<Message> messages;
 
 
-
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(name = "user_chat",
-                joinColumns = @JoinColumn(name = "user_id"),
-                inverseJoinColumns = @JoinColumn(name = "chat_id"))
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "chat_id"))
     private Set<Chat> chats;
 
 
 
+    @OneToMany(
+            mappedBy = "user",
+            cascade = {CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH,
+            CascadeType.DETACH},
+            orphanRemoval = true
+    )
+    private Set<Feedback> feedbacks;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles;
+        return null;
     }
 
     @Override
