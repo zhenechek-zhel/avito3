@@ -20,6 +20,11 @@ public class Chat implements Serializable {
     private Long hash;
 
 
+    //TODO реализовать обратную связь (с User)
+    @ManyToMany(mappedBy = "chats")
+        private Set<User> users = new HashSet<>();
+
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "chat_id")
     private Set<Message> messages;

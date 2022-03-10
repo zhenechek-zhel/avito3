@@ -116,9 +116,11 @@ public class User implements UserDetails, Serializable {
     @JoinColumn(name = "user_id")
     private Set<Discount> discounts;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private Favorite favorite;
+
+/*    //TODO разобраться: почему не отражена связь в БД?
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Favorite favorite;*/
 
     @OneToMany
     @JoinColumn(name = "user_from_id")
