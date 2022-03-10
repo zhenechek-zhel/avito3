@@ -23,7 +23,6 @@ public class Category {
     private Long id;
 
 
-
     @Column(name = "name")
     private String name;
 
