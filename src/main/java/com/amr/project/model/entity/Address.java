@@ -19,27 +19,45 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
+
+    @Column(name = "city_index",nullable = false, unique = true)
     private String cityIndex;
+
+    @Column(name = "street",nullable = false, unique = true)
     private String street;
+
+    @Column(name = "house",nullable = false, unique = true)
     private String house;
 
 
-    @ManyToOne
-    @JoinColumn(name = "city_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
     private City city;
 
 
     @OneToMany(
             mappedBy = "address",
-            cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
+            cascade = {CascadeType.MERGE,
+                    CascadeType.PERSIST,
+                    CascadeType.REFRESH,
+                    CascadeType.DETACH},
             orphanRemoval = true
     )
     private Set<User> users;
 
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "address")
+    @OneToMany(
+            mappedBy = "address",
+            cascade = {CascadeType.MERGE,
+                    CascadeType.PERSIST,
+                    CascadeType.REFRESH,
+                    CascadeType.DETACH},
+            orphanRemoval = true
+           )
     private Set<Shop> shops;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "address")
+
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            mappedBy = "address")
     private Set<Order> orders;
 }

@@ -1,8 +1,10 @@
 package com.amr.project.model.entity;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,6 +12,8 @@ import java.util.List;
 @Entity
 @Table(name = "image")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Image {
     //TODO картинки будем хранить в БД (для удобства, хотя это и плохая практика)
@@ -18,18 +22,18 @@ public class Image {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
     private byte[] picture;
+
     private Boolean isMain = false;
 
 
-    @OneToOne(mappedBy = "logo")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "shop_id")
     private Shop shop;
 
 
     @ManyToMany(mappedBy = "images")
     private List<Item> itemsImage;
 
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
 }

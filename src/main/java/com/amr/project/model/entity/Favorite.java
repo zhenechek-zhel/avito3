@@ -16,24 +16,27 @@ import java.util.Set;
 @AllArgsConstructor
 public class Favorite {
     //TODO избранные товары пользователя
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true)
     private Long id;
 
     @ManyToMany
     @JoinTable(name = "favorite_shop",
-                joinColumns = @JoinColumn(name = "favorite_id"),
-                inverseJoinColumns = @JoinColumn(name = "shop_id"))
+            joinColumns = @JoinColumn(name = "favorite_id"),
+            inverseJoinColumns = @JoinColumn(name = "shop_id"))
     private Set<Shop> shops;
 
 
     @ManyToMany
-    @JoinTable(name = "item_shop",
+    @JoinTable(name = "favorite_item",
             joinColumns = @JoinColumn(name = "favorite_id"),
             inverseJoinColumns = @JoinColumn(name = "item_id"))
     private Set<Item> items;
 
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @MapsId
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
 }

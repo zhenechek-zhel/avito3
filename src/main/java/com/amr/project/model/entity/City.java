@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "city")
@@ -24,8 +25,29 @@ public class City {
     private String name;
 
 
+    @OneToMany(
+            mappedBy = "city",
+            cascade = {CascadeType.PERSIST,
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH,
+                    CascadeType.DETACH},
+            orphanRemoval = true
+    )
+    private Set<Address> addresses;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Country country;
+
+
+
+    @OneToMany(
+            mappedBy = "city",
+            cascade = {CascadeType.PERSIST,
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH,
+                    CascadeType.DETACH},
+            orphanRemoval = true
+    )
+    private Set<Shop> shops;
 
 }

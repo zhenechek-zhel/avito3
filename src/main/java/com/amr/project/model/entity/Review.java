@@ -36,14 +36,22 @@ public class Review {
     @Column(name = "rating")
     private int rating;
 
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
+
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Shop shop;
 
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Item item;
+
+
 
     private boolean isModerated = false;
     private boolean isModerateAccept = false;

@@ -19,11 +19,11 @@ public class Shop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @Column(unique = true)
     private String name;
-    @Column
+    @Column(unique = true)
     private String email;
-    @Column
+    @Column(unique = true)
     private String phone;
     @Column
     private String description;
@@ -34,34 +34,37 @@ public class Shop {
     // уточнить имя для связанной колонки
 
 
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "country_id")
     private Country location;
 
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "shop")
+    @OneToMany(
+            mappedBy = "shop",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private Set<Item> items;
 
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "shop")
+    @OneToMany(
+            mappedBy = "shop",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private Set<Review> reviews;
 
 
-    @OneToOne(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY)
-    @JoinColumn(name = "image_id")
+    @OneToOne(mappedBy = "shop", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
     private Image logo;
 
 
-    // уточнить имя для связанной колонки
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @ManyToMany(mappedBy = "shops")
+    private Set<User> users;
 
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cartItem_id")
+    @OneToOne(mappedBy = "shop", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
     private CartItem cartItem;
 
 
@@ -73,13 +76,14 @@ public class Shop {
     private Set<Feedback> feedback;
 
 
-    @ManyToMany(mappedBy = "shops")
-    private Set<User> users;
-
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "shop_id")
+    @OneToMany(mappedBy = "shop",
+            cascade = {CascadeType.PERSIST,
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH,
+                    CascadeType.DETACH},
+            orphanRemoval = true)
     private Set<Discount> discounts;
+
 
     @ManyToMany(mappedBy = "shops")
     private Set<Favorite> favorites;
@@ -88,6 +92,17 @@ public class Shop {
     @ManyToOne(fetch = FetchType.LAZY)
     private Address address;
 
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "shop_id")
+    private Set<Coupon> coupons;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private City city;
 
 
     private boolean isModerated = false;

@@ -16,15 +16,25 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Chat {
+
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long hash;
 
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "chat_id")
+    @OneToMany(
+            mappedBy = "chat",
+            cascade = {CascadeType.PERSIST,
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH,
+                    CascadeType.DETACH},
+            orphanRemoval = true
+    )
     private Set<Message> messages;
+
+
 
     @ManyToMany(mappedBy = "chats")
     private Set<User> users;

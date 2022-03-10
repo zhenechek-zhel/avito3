@@ -25,8 +25,19 @@ public class Country {
     @Column(name = "name")
     private String name;
 
+    @OneToMany(
+            mappedBy = "location",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private Set<Shop> shops;
 
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "country")
+    @OneToMany(
+            mappedBy = "country",
+            cascade = {CascadeType.PERSIST,
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH,
+                    CascadeType.DETACH},
+            orphanRemoval = true)
     private Set<City> cities;
 }

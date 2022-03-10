@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders")
@@ -23,14 +24,19 @@ public class Order {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToMany
-    private List<Item> items;//список заказанных товаров
+
 
     @Column(name = "data", nullable = false)
     private Calendar orderDate;//дата заказа
 
     @Column(name = "delyv_data")
     private Calendar expectedDeliveryDate;//ожидаемая дата доставки
+
+    @Column(name = "total")
+    private BigDecimal grandTotal;
+
+    @Column(name = "currency")
+    private String currency;
 
     @Column(name = "descript")
     private String description;//комментарий к заказу со стороны user'a
@@ -42,6 +48,19 @@ public class Order {
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {CascadeType.MERGE,
+                    CascadeType.PERSIST,
+                    CascadeType.REFRESH,
+                    CascadeType.DETACH})
+    @JoinTable(name = "order_item",
+                joinColumns = @JoinColumn(name = "order_id"),
+                inverseJoinColumns = @JoinColumn(name = "item_id"))
+    private Set<Item> itemsInOrder;
+
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Address address;
 
@@ -49,11 +68,7 @@ public class Order {
     /*@Column(name = "")
     private Shop shop;//магазин-продавец (или магазины?) - подумать над необходимостью данного поля (информация продублирована в items)
 */
-    @Column(name = "total")
-    private BigDecimal grandTotal;
 
-    @Column(name = "currency")
-    private String currency;
 
 
 }

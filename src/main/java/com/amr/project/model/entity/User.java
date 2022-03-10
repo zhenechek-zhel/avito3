@@ -28,16 +28,28 @@ public class User implements UserDetails {
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
+    @Column(name = "email", unique = true)
     private String email;
+
+    @Column(name = "username", unique = true)
     private String username;
+
     private String password;
     private boolean activate;
     private String activationCode;
     private boolean isUsingTwoFactorAuth;
     private String secret;
-    @OneToOne
-    @JoinColumn(name = "user_info_id")
+
+
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
     private UserInfo userInfo;
+
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    private Favorite favorite;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -56,13 +68,16 @@ public class User implements UserDetails {
     private Set<Image> images;
 
 
-    @OneToMany(cascade = {
+    @OneToMany(
+            mappedBy = "user",
+            cascade = {
             CascadeType.PERSIST,
-            CascadeType.MERGE})
-    @JoinTable(name = "user_coupons",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "coupon_id"))
+            CascadeType.MERGE,
+            CascadeType.DETACH,
+            CascadeType.REFRESH},
+            orphanRemoval = true)
     private Set<Coupon> coupons;
+
 
 
     @OneToMany(
@@ -82,10 +97,10 @@ public class User implements UserDetails {
 
 
     @OneToMany(
+            mappedBy = "user",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    @JoinColumn(name = "user_id")
     private Set<Review> reviews;
 
 
@@ -96,15 +111,18 @@ public class User implements UserDetails {
     private Set<Shop> shops;
 
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true)
     @JoinColumn(name = "user_id")
     private Set<Discount> discounts;
 
-    @OneToOne
-    private Favorite favorite;
 
-    @OneToMany
-    @JoinColumn(name = "user_from_id")
+
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private Set<Message> messages;
 
 

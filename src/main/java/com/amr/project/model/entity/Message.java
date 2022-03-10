@@ -25,16 +25,17 @@ public class Message {
     @Column(name = "date")
     private Date date;
 
+    @Column
+    private String textMessage;
+
+    @Column
+    private boolean viewed;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Chat chat;
 
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private User userFrom;
-
-
-    @Column
-    private String textMessage;
-    @Column
-    private boolean viewed;
 }

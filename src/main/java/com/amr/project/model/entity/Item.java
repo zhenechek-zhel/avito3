@@ -21,7 +21,9 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true)
     private Long id;
+    @Column(name = "name", unique = true)
     private String name;
+
     private BigDecimal basePrice;
     private BigDecimal price;
     private int count;
@@ -41,12 +43,17 @@ public class Item {
 
 
     @ManyToMany
-    @JoinTable(name = "item_image", joinColumns = @JoinColumn(name = "item_id"),
+    @JoinTable(name = "item_image",
+            joinColumns = @JoinColumn(name = "item_id"),
             inverseJoinColumns = @JoinColumn(name = "image_id"))
     private Set<Image> images;
 
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "item")
+    @OneToMany(
+            mappedBy = "item",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private Set<Review> reviews;
 
 
@@ -54,8 +61,10 @@ public class Item {
     private Set<Favorite> favorites;
 
 
+    @ManyToMany(mappedBy = "itemsInOrder")
+    private Set<Order> orders;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "shop_id")
     private Shop shop;
 
 
