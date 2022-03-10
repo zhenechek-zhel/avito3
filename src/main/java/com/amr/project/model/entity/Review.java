@@ -48,5 +48,4 @@ public class Review {
     private boolean isModerated = false;
     private boolean isModerateAccept = false;
     private String moderatedRejectReason;
-
 }
