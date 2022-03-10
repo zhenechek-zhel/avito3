@@ -16,7 +16,6 @@ import java.util.Calendar;
 public class UserInfo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
@@ -24,9 +23,14 @@ public class UserInfo {
     private String firstName;
     private String lastName;
     private int age;
-    private Gender gender;
     private Calendar birthday;
 
-    @OneToOne(mappedBy = "userInfo")
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
+
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
     private User user;
 }

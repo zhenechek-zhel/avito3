@@ -37,12 +37,9 @@ public class User implements UserDetails, Serializable {
     private boolean isUsingTwoFactorAuth;
     private String secret;
 
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
-    private Calendar birthday;
-
-    @OneToOne
-    @JoinColumn(name = "user_info_id")
+    @OneToOne(mappedBy="user",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
     private UserInfo userInfo;
 
 
@@ -116,11 +113,10 @@ public class User implements UserDetails, Serializable {
     @JoinColumn(name = "user_id")
     private Set<Discount> discounts;
 
-
-/*    //TODO разобраться: почему не отражена связь в БД?
-    @OneToOne(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    private Favorite favorite;*/
+    @OneToOne(mappedBy = "user",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private Favorite favorite;
 
     @OneToMany
     @JoinColumn(name = "user_from_id")

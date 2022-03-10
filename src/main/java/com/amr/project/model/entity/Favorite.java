@@ -33,7 +33,7 @@ public class Favorite {
     private Set<Item> items;
 
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @MapsId
     private User user;
 }

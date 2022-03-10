@@ -30,7 +30,7 @@ public class Chat implements Serializable {
     private Set<Message> messages;
 
     @ManyToMany(mappedBy = "chats")
-    private Set<User> users;
+    private Set<User> users = new HashSet<>();
 
 
 
