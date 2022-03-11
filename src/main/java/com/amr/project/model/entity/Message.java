@@ -1,20 +1,41 @@
 package com.amr.project.model.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
+
 
 @Entity
 @Table(name = "message")
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Message {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
-    private Chat chat;
-    private User to;
-    private User from;
+
+    @Column(name = "date")
+    private Date date;
+
+    @Column
     private String textMessage;
+
+    @Column
     private boolean viewed;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Chat chat;
+
 }
