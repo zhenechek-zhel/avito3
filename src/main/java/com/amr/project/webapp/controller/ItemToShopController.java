@@ -31,7 +31,6 @@ public class ItemToShopController {
         this.shopService = shopService;
     }
 
-
     @PutMapping("/shop/{idShop}/items/{idItem}")
     public ResponseEntity<Set<Item>> addItemInShop(
             @PathVariable(name = "idItem") Long idItem,
