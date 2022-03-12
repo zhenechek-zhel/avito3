@@ -1,5 +1,6 @@
 package com.amr.project.converter;
 
+import com.amr.project.model.dto.OrderDTO;
 import com.amr.project.model.entity.Order;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -9,7 +10,7 @@ public interface OrderMapper {
 
     OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);
 
-    OrderDto toOrderDto(Order order);
+    OrderDTO toOrderDto(Order order);
 
-    Order toOrder(OrderDto orderDto);
+    Order toOrder(OrderDTO orderDto);
 }
