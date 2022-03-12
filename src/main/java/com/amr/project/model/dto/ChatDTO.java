@@ -22,4 +22,8 @@ public class ChatDTO {
     private Set<MessageDTO> messagesDTO;
     private Set<UserDTO> usersDTO;
 
+    public ChatDTO(Set<User> members) {
+        this.users = members;
+        this.hash = members.stream().map(User::hashCode).mapToLong(e -> e).sum();
+    }
 }
