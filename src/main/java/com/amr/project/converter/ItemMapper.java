@@ -6,6 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 
+
 @Mapper
 public interface ItemMapper {
 
@@ -14,5 +15,4 @@ public interface ItemMapper {
     ItemDTO toItemDTO(Item item);
 
     Item toItem(ItemDTO itemDTO);
-
 }
