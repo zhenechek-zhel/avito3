@@ -10,7 +10,7 @@ public interface CartItemMapper {
 
     CartItemMapper INSTANCE = Mappers.getMapper(CartItemMapper.class);
 
-    CartItemDTO toCartItemDto(CartItem cartItem);
+    CartItemDTO toCartItemDTO(CartItem cartItem);
 
     CartItem toCartItem(CartItemDTO cartItemDto);
 }
