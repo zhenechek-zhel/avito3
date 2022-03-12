@@ -6,8 +6,7 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.util.Set;
 
-@Getter
-@Setter
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,13 +21,15 @@ public class ItemDTO {
     private double rating;
     private String description;
     private int discount;
-    private Category category;
-    private CartItem cartItem;
-    private Set<Image> images;
-    private Set<Review> reviews;
-    private Set<Favorite> favorites;
-    private Set<Order> orders;
-    private Shop shop;
+
+    private CategoryDto categoryDTO;
+    private CartItemDto cartItemDTO;
+    private Set<ImageDto> imagesDTO;
+    private Set<ReviewDto> reviewsDTO;
+    private Set<FavoriteDto> favoritesDTO;
+    private Set<OrderDto> ordersDTO;
+    private ShopDto shopDTO;
+
     private boolean isModerated;
     private boolean isModerateAccept;
     private String moderatedRejectReason;
