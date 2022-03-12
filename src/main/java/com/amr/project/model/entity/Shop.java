@@ -6,15 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
+
+
+@Data
+@Builder
 @Entity
 @Table(name = "shop")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class Shop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,7 +42,7 @@ public class Shop {
     @OneToMany(
             mappedBy = "shop",
             cascade = CascadeType.ALL,
-            orphanRemoval = true
+            orphanRemoval = false
     )
     private Set<Item> items;
 

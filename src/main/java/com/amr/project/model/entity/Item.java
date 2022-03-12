@@ -1,9 +1,6 @@
 package com.amr.project.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -16,6 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +22,19 @@ public class Item {
     @Column(name = "name", unique = true)
     private String name;
 
+    @Column(name = "base_price")
     private BigDecimal basePrice;
+
+    @Column(name = "price")
     private BigDecimal price;
+
+    @Column(name = "count")
     private int count;
+
+    @Column(name = "rating")
     private double rating;
+
+
     private String description;
     private int discount;
 
@@ -67,7 +74,7 @@ public class Item {
     private Shop shop;
 
 
-    private boolean isModerated = false;
+    private boolean isModerated;
     private boolean isModerateAccept;
     private String moderatedRejectReason;
     private boolean isPretendedToBeDeleted;
