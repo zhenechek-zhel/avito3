@@ -1,0 +1,15 @@
+package com.amr.project.converter;
+
+import com.amr.project.model.entity.CartItem;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
+
+@Mapper
+public interface CartItemMapper {
+
+    CartItemMapper INSTANCE = Mappers.getMapper(CartItemMapper.class);
+
+    CartItemDto toCartItemDto(CartItem cartItem);
+
+    CartItem toCartItem(CartItemDto cartItemDto);
+}

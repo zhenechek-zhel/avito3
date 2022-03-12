@@ -74,7 +74,7 @@ public class Shop {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private Set<Feedback> feedback;
+    private Set<Feedback> feedbacks;
 
 
     @OneToMany(
