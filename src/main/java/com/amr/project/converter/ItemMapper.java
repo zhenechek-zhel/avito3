@@ -15,5 +15,5 @@ public interface ItemMapper {
 
     ItemDTO toItemDTO(Item item);
 
-    Item toItem(ItemDTO itemDTO);
+    Item toItemEntity(ItemDTO itemDTO);
 }

@@ -21,13 +21,15 @@ public class ItemDTO {
     private double rating;
     private String description;
     private int discount;
-    private CategoryDto category;
-    private CartItemDto cartItem;
-    private Set<ImageDto> images;
-    private Set<ReviewDto> reviews;
-    private Set<FavoriteDto> favorites;
-    private Set<OrderDto> orders;
-    private ShopDto shop;
+
+    private CategoryDto categoryDTO;
+    private CartItemDto cartItemDTO;
+    private Set<ImageDto> imagesDTO;
+    private Set<ReviewDto> reviewsDTO;
+    private Set<FavoriteDto> favoritesDTO;
+    private Set<OrderDto> ordersDTO;
+    private ShopDto shopDTO;
+
     private boolean isModerated;
     private boolean isModerateAccept;
     private String moderatedRejectReason;
