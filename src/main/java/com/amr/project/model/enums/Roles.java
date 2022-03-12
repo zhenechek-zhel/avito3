@@ -5,4 +5,5 @@ public enum Roles {
     MODERATOR,
     ADMIN,
     ANONYMOUS
+
 }
