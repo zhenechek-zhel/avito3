@@ -21,8 +21,6 @@ public class CartItemDTO {
     private int quantity;
     private User user;
 
-
-
     private ShopDTO shopDTO;
     private Set<ItemDTO> itemListDTO;
 }

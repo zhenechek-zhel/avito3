@@ -1,6 +1,5 @@
 package com.amr.project.model.dto;
 
-import com.amr.project.model.entity.*;
 import com.amr.project.model.enums.Roles;
 import lombok.*;
 
@@ -10,7 +9,7 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+public class UserDTO {
 
     //TODO переносить методы из UserDetails?
 
@@ -23,7 +22,7 @@ public class UserDto {
     private boolean isUsingTwoFactorAuth;
     private String secret;
     private Roles role;
-    private UserInfoDto userInfo;
+    private UserInfoDTO userInfo;
     private FavoriteDto favorite;
     private AddressDto address;
     private Set<ImageDto> images;
@@ -31,8 +30,8 @@ public class UserDto {
     private Set<CouponDto> coupons;
     private Set<CartItemDto> cart;
     private Set<OrderDto> orders;
-    private Set<ReviewDto> reviews;
-    private Set<ShopDto> shops;
+    private Set<ReviewDTO> reviews;
+    private Set<ShopDTO> shops;
     private Set<DiscountDto> discounts;
     private Set<MessageDto> messages;
     private Set<ChatDto> chats;
