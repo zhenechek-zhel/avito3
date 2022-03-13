@@ -6,6 +6,6 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring", uses = ShopMapper.class)
 public interface ImageMapper {
-    ImageDTO toImageDto(Image image);
-    Image toImage(ImageDTO imageDto);
+    ImageDTO toDTO(Image image);
+    Image toEntity(ImageDTO imageDto);
 }
