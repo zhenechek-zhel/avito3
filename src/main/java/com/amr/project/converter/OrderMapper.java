@@ -5,9 +5,8 @@ import com.amr.project.model.entity.Order;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface OrderMapper {
-    OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);
     OrderDTO toOrderDto(Order order);
     Order toOrder(OrderDTO orderDto);
 }

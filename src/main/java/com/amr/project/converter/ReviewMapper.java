@@ -5,9 +5,8 @@ import com.amr.project.model.entity.Review;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ReviewMapper {
-    ReviewMapper INSTANCE = Mappers.getMapper(ReviewMapper.class);
     ReviewDTO toReviewDto(Review review);
     Review toReview(ReviewDTO reviewDto);
 }

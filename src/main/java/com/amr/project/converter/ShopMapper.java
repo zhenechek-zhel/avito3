@@ -5,9 +5,8 @@ import com.amr.project.model.entity.Shop;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ShopMapper {
-    ShopMapper INSTANCE = Mappers.getMapper(ShopMapper.class);
     ShopDTO toShopDto(Shop shop);
     Shop toShop(ShopDTO shopDto);
 }

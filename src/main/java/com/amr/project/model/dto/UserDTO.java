@@ -23,17 +23,17 @@ public class UserDTO {
     private String secret;
     private Roles role;
     private UserInfoDTO userInfo;
-    private FavoriteDto favorite;
-    private AddressDto address;
-    private Set<ImageDto> images;
+    private FavoriteDTO favorite;
+    private AddressDTO address;
+    private Set<ImageDTO> images;
 
-    private Set<CouponDto> coupons;
-    private Set<CartItemDto> cart;
-    private Set<OrderDto> orders;
+    private Set<CouponDTO> coupons;
+    private Set<CartItemDTO> cart;
+    private Set<OrderDTO> orders;
     private Set<ReviewDTO> reviews;
     private Set<ShopDTO> shops;
-    private Set<DiscountDto> discounts;
-    private Set<MessageDto> messages;
-    private Set<ChatDto> chats;
-    private Set<FeedbackDto> feedbacks;
+    private Set<DiscountDTO> discounts;
+    private Set<MessageDTO> messages;
+    private Set<ChatDTO> chats;
+    private Set<FeedbackDTO> feedbacks;
 }
