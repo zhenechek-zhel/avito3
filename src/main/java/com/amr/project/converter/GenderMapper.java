@@ -1,8 +1,6 @@
 package com.amr.project.converter;
 
 import com.amr.project.model.dto.GenderDTO;
-import com.amr.project.model.dto.ImageDTO;
-import com.amr.project.model.entity.Image;
 import com.amr.project.model.enums.Gender;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
