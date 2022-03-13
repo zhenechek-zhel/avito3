@@ -2,10 +2,7 @@ package com.amr.project.converter.sets;
 
 
 import com.amr.project.converter.CategoryMapper;
-import com.amr.project.converter.ItemMapper;
-import com.amr.project.model.dto.CartItemDTO;
 import com.amr.project.model.dto.CategoryDTO;
-import com.amr.project.model.entity.CartItem;
 import com.amr.project.model.entity.Category;
 import org.mapstruct.Mapper;
 

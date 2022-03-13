@@ -1,11 +1,7 @@
 package com.amr.project.converter.sets;
 
 import com.amr.project.converter.CartItemMapper;
-import com.amr.project.converter.ItemMapper;
-import com.amr.project.converter.ShopMapper;
-import com.amr.project.model.dto.AddressDTO;
 import com.amr.project.model.dto.CartItemDTO;
-import com.amr.project.model.entity.Address;
 import com.amr.project.model.entity.CartItem;
 import org.mapstruct.Mapper;
 

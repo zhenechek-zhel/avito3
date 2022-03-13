@@ -1,9 +1,7 @@
 package com.amr.project.converter.sets;
 
 import com.amr.project.converter.CountryMapper;
-import com.amr.project.model.dto.CartItemDTO;
 import com.amr.project.model.dto.CouponDTO;
-import com.amr.project.model.entity.CartItem;
 import com.amr.project.model.entity.Coupon;
 import org.mapstruct.Mapper;
 
