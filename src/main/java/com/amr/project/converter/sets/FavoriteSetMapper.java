@@ -13,7 +13,6 @@ import java.util.Set;
 public interface FavoriteSetMapper {
 
 
-
     Set<Favorite> toFavoriteSet(Set<FavoriteDTO> dtos);
 
     Set<FavoriteDTO> toFavoriteDTOSet(Set<Favorite> entities);
