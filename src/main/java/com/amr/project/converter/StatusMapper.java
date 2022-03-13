@@ -10,4 +10,8 @@ public interface StatusMapper {
     StatusMapper INSTANCE = Mappers.getMapper(StatusMapper.class);
     StatusDTO toDTO(Status status);
     Status toEntity(StatusDTO status);
+
+    default StatusMapper getInstance() {
+        return INSTANCE;
+    }
 }
