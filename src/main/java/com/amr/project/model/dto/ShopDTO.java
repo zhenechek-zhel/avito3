@@ -9,7 +9,7 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ShopDto {
+public class ShopDTO {
 
     private Long id;
     private String name;
@@ -21,14 +21,14 @@ public class ShopDto {
     private double rating;
     private Country location;
     private Set<ItemDTO> items;
-    private Set<ReviewDto> reviews;
-    private ImageDto logo;
-    private UserDto user;
-    private CartItemDto cartItem;
-    private Set<FeedbackDto> feedbacks;
-    private Set<DiscountDto> discounts;
-    private Set<FavoriteDto> favorites;
-    private AddressDto address;
-    private Set<CouponDto> coupons;
+    private Set<ReviewDTO> reviews;
+    private ImageDTO logo;
+    private UserDTO user;
+    private CartItemDTO cartItem;
+    private Set<FeedbackDTO> feedbacks;
+    private Set<DiscountDTO> discounts;
+    private Set<FavoriteDTO> favorites;
+    private AddressDTO address;
+    private Set<CouponDTO> coupons;
 
 }

@@ -9,7 +9,7 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReviewDto {
+public class ReviewDTO {
 
     private Long id;
     private String dignity;
@@ -17,8 +17,8 @@ public class ReviewDto {
     private String text;
     private Date date;
     private int rating;
-    private UserDto user;
-    private ShopDto shop;
+    private UserDTO user;
+    private ShopDTO shop;
     private ItemDTO item;
 
 

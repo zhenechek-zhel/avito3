@@ -1,6 +1,5 @@
 package com.amr.project.model.dto;
 
-import com.amr.project.model.entity.*;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -21,13 +20,15 @@ public class ItemDTO {
     private double rating;
     private String description;
     private int discount;
-    private CategoryDto category;
-    private CartItemDto cartItem;
-    private Set<ImageDto> images;
-    private Set<ReviewDto> reviews;
-    private Set<FavoriteDto> favorites;
-    private Set<OrderDto> orders;
-    private ShopDto shop;
+
+    private CategoryDTO categoryDTO;
+    private CartItemDTO cartItemDTO;
+    private Set<ImageDTO> imagesDTO;
+    private Set<ReviewDTO> reviewsDTO;
+    private Set<FavoriteDTO> favoritesDTO;
+    private Set<OrderDTO> ordersDTO;
+    private ShopDTO shopDTO;
+
     private boolean isModerated;
     private boolean isModerateAccept;
     private String moderatedRejectReason;

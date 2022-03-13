@@ -1,6 +1,5 @@
 package com.amr.project.model.dto;
 
-import com.amr.project.model.entity.User;
 import com.amr.project.model.enums.Gender;
 import lombok.*;
 
@@ -10,7 +9,7 @@ import java.util.Calendar;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserInfoDto {
+public class UserInfoDTO {
     private Long id;
 
     private String phone;
@@ -20,5 +19,5 @@ public class UserInfoDto {
     private Gender gender;
 
     private Calendar birthday;
-    private UserDto user;
+    private UserDTO user;
 }
