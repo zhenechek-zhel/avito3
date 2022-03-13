@@ -7,10 +7,7 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface CartItemMapper {
-
     CartItemMapper INSTANCE = Mappers.getMapper(CartItemMapper.class);
-
     CartItemDTO toCartItemDTO(CartItem cartItem);
-
     CartItem toCartItem(CartItemDTO cartItemDto);
 }

@@ -7,10 +7,7 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface ShopMapper {
-
     ShopMapper INSTANCE = Mappers.getMapper(ShopMapper.class);
-
     ShopDTO toShopDto(Shop shop);
-
     Shop toShop(ShopDTO shopDto);
 }

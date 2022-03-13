@@ -7,10 +7,7 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface ImageMapper {
-
     ImageMapper INSTANCE = Mappers.getMapper(ImageMapper.class);
-
     ImageDTO toImageDto(Image image);
-
     Image toImage(ImageDTO imageDto);
 }
