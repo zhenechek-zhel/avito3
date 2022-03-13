@@ -1,13 +1,9 @@
 package com.amr.project.model.dto;
 
-import com.amr.project.model.entity.Shop;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
-
 
 
 @Data
@@ -22,7 +18,6 @@ public class DiscountDTO {
     private Integer fixedDiscount;
 
     private ShopDTO shopDTO;
-
 
 
 }

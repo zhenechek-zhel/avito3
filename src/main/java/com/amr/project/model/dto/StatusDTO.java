@@ -1,17 +1,16 @@
 package com.amr.project.model.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
-
-
+@Getter
+@AllArgsConstructor
 public enum StatusDTO {
     START,
     COMPLETE,
     WAITING,
     PAID,
     SENT,
-    DELIVERED
+    DELIVERED;
+
 }

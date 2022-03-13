@@ -19,7 +19,6 @@ public class CartItemDTO {
     private User user;
 
 
-
     private ShopDTO shopDTO;
     private Set<ItemDTO> itemListDTO;
 }

@@ -1,7 +1,6 @@
 package com.amr.project.model.entity;
 
 import com.amr.project.model.enums.Roles;
-import com.stripe.model.BalanceTransaction;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,11 +18,6 @@ import java.util.Set;
 @ToString(of = {"id", "email", "username", "password"})
 @EqualsAndHashCode(of = {"id", "email", "username"})
 public class User implements UserDetails {
-    //TODO надо продумать юзера, слишком много у него связей,
-    // нужны-ли они, возможно где-то вместо связи с ентити использовать id,
-    // иначе есть вероятность попасть в констрейнты и не отстроить нормальную структуру
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
@@ -57,10 +51,6 @@ public class User implements UserDetails {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Address address;
-
-
-
-
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "user_id")
@@ -135,13 +125,12 @@ public class User implements UserDetails {
     private Set<Chat> chats;
 
 
-
     @OneToMany(
             mappedBy = "user",
             cascade = {CascadeType.MERGE,
-            CascadeType.PERSIST,
-            CascadeType.REFRESH,
-            CascadeType.DETACH},
+                    CascadeType.PERSIST,
+                    CascadeType.REFRESH,
+                    CascadeType.DETACH},
             orphanRemoval = true
     )
     private Set<Feedback> feedbacks;
@@ -169,5 +158,15 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public String getPassword() {
+        return null;
+    }
+
+    @Override
+    public String getUsername() {
+        return null;
     }
 }

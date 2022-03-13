@@ -1,7 +1,10 @@
 package com.amr.project.model.dto;
 
-import com.amr.project.model.entity.*;
-import lombok.*;
+import com.amr.project.model.entity.Country;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Set;
 

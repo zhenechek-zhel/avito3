@@ -1,8 +1,14 @@
 package com.amr.project.model.dto;
 
 import com.amr.project.model.enums.Roles;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.Set;
 
 @Data
@@ -10,8 +16,6 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDTO {
-
-    //TODO переносить методы из UserDetails?
 
     private Long id;
     private String email;
@@ -36,4 +40,5 @@ public class UserDTO {
     private Set<MessageDTO> messages;
     private Set<ChatDTO> chats;
     private Set<FeedbackDTO> feedbacks;
+
 }

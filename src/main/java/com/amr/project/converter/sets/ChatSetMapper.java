@@ -1,6 +1,6 @@
 package com.amr.project.converter.sets;
 
-import com.amr.project.converter.ChatMapper;
+import com.amr.project.converter.mappers.ChatMapper;
 import com.amr.project.model.dto.ChatDTO;
 import com.amr.project.model.entity.Chat;
 import org.mapstruct.Mapper;
@@ -14,5 +14,6 @@ public interface ChatSetMapper {
     ChatSetMapper INSTANCE = Mappers.getMapper(ChatSetMapper.class);
 
     Set<ChatDTO> toDTOSet(Set<Chat> chats);
+
     Set<Chat> toEntitySet(Set<ChatDTO> chatDTOS);
 }

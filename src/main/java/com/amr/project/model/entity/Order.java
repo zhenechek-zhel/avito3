@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -23,7 +22,6 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
-
 
 
     @Column(name = "data", nullable = false)
@@ -55,15 +53,13 @@ public class Order {
                     CascadeType.REFRESH,
                     CascadeType.DETACH})
     @JoinTable(name = "order_item",
-                joinColumns = @JoinColumn(name = "order_id"),
-                inverseJoinColumns = @JoinColumn(name = "item_id"))
+            joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "item_id"))
     private Set<Item> itemsInOrder;
-
 
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Address address;
-
 
 
 }

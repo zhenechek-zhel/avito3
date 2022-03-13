@@ -1,7 +1,7 @@
 package com.amr.project.converter.sets;
 
 
-import com.amr.project.converter.*;
+import com.amr.project.converter.mappers.AddressMapper;
 import com.amr.project.model.dto.AddressDTO;
 import com.amr.project.model.entity.Address;
 import org.mapstruct.Mapper;
@@ -15,6 +15,7 @@ public interface AddressSetMapper {
     AddressSetMapper INSTANCE = Mappers.getMapper(AddressSetMapper.class);
 
     Set<AddressDTO> toDTOSet(Set<Address> addresses);
+
     Set<Address> toEntitySet(Set<AddressDTO> addressDTOS);
 
 }

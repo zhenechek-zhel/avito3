@@ -1,19 +1,15 @@
 package com.amr.project.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
-
-
-@Data
 @Builder
 @Entity
 @Table(name = "shop")
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Shop {
@@ -32,8 +28,6 @@ public class Shop {
     private int count;
 
     private double rating;
-    // уточнить имя для связанной колонки
-
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Country location;
@@ -101,7 +95,6 @@ public class Shop {
     )
     @JoinColumn(name = "shop_id")
     private Set<Coupon> coupons;
-
 
 
     private boolean isModerated = false;
