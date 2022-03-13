@@ -37,5 +37,7 @@ public class City {
     @ManyToOne(fetch = FetchType.LAZY)
     private Country country;
 
-
+    public City(Long id) {
+        this.id = id;
+    }
 }

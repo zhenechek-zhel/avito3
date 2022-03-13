@@ -1,37 +1,49 @@
-import com.amr.project.converter.CityMapper;
-import com.amr.project.converter.ImageMapper;
-import com.amr.project.converter.ItemMapper;
+
+import com.amr.project.converter.mappers.CityMapper;
+import com.amr.project.converter.mappers.CityMapperImpl;
 import com.amr.project.model.dto.CityDTO;
-import com.amr.project.model.dto.ItemDTO;
+
 import com.amr.project.model.entity.City;
-import com.amr.project.model.entity.Item;
+
+import com.amr.project.model.entity.Country;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class TestImageMapper {
 
-    @Autowired
-    private CityMapper mapperUnderTest;
 
 
+
+//    @Test
+//    public void shouldProperlyMapModelToDto() {
+//        //given
+//        City model = new City();
+//        model.setId(11L);
+//        model.setName("City name");
+//
+//        //when
+//        CityDTO dto = mapperUnderTest.toDTO(model);
+//
+//        //then
+//        Assertions.assertNotNull(dto);
+//        Assertions.assertEquals(model.getId(), dto.getId());
+//        Assertions.assertEquals(model.getName(), dto.getName());
+//    }
 
 
     @Test
-    void shouldProperlyMapModelToDto() {
-        //given
-        City model = new City();
-        model.setId(11L);
-        model.setName("Item name");
+    public void shouldMapCityToDto() {
+        City city = new City(1L);
 
-        //when
-        CityDTO dto = mapperUnderTest.toDTO(model);
+        CityDTO cityDTO = CityMapper.INSTANCE.toDTO(city);
 
-        //then
-        Assertions.assertNotNull(dto);
-        Assertions.assertEquals(model.getId(), dto.getId());
-        Assertions.assertEquals(model.getName(), dto.getName());
+        Assertions.assertNotNull(cityDTO);
+        Assertions.assertEquals(city.getId(), cityDTO.getId());
+        Assertions.assertEquals(city.getName(), cityDTO.getName());
+
     }
 }
