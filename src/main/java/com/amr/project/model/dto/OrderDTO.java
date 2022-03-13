@@ -24,7 +24,7 @@ public class OrderDTO {
     private String description;
 
 
-    private Status status;
+    private StatusDTO status;
     private UserDTO userDTO;
     private Set<ItemDTO> itemsInOrderDTO;
     private AddressDTO addressDTO;
