@@ -9,7 +9,7 @@ import com.amr.project.model.entity.Item;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring", uses = {CategoryMapper.class, ImageSetMapper.class, ReviewSetMapper.class,
+@Mapper(uses = {CategoryMapper.class, ImageSetMapper.class, ReviewSetMapper.class,
         FavoriteSetMapper.class, OrderSetMapper.class, ShopMapper.class})
 public interface ItemMapper {
 
