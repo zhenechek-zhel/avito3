@@ -1,13 +1,10 @@
 package com.amr.project.model.dto;
 
-import com.amr.project.model.entity.Chat;
-import com.amr.project.model.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.util.Date;
 
 

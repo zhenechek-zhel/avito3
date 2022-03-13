@@ -9,8 +9,6 @@ import java.util.Set;
 
 @Mapper(uses = ReviewMapper.class)
 public interface ReviewSetMapper {
-
-    Set<Review> toReviewSet(Set<ReviewDTO> dtos);
-
-    Set<ReviewDTO> toReviewDTOSet(Set<Review> entities);
+    Set<Review> toEntitySet(Set<ReviewDTO> dtos);
+    Set<ReviewDTO> toDTOSet(Set<Review> entities);
 }

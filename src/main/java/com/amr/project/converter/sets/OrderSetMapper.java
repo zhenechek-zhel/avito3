@@ -9,9 +9,7 @@ import java.util.Set;
 
 @Mapper(uses = OrderMapper.class)
 public interface OrderSetMapper {
-
-    Set<Order> toOrderSet(Set<OrderDTO> dtos);
-
-    Set<OrderDTO> toReviewDTOSet(Set<Order> entities);
+    Set<Order> toEntitySet(Set<OrderDTO> dtos);
+    Set<OrderDTO> toDTOSet(Set<Order> entities);
 
 }

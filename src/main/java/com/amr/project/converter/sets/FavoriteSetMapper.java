@@ -9,9 +9,6 @@ import java.util.Set;
 
 @Mapper(uses = FavoriteMapper.class)
 public interface FavoriteSetMapper {
-
-
-    Set<Favorite> toFavoriteSet(Set<FavoriteDTO> dtos);
-
-    Set<FavoriteDTO> toFavoriteDTOSet(Set<Favorite> entities);
+    Set<Favorite> toEntitySet(Set<FavoriteDTO> dtos);
+    Set<FavoriteDTO> toDTOSet(Set<Favorite> entities);
 }
