@@ -1,5 +1,6 @@
 package com.amr.project.model.dto;
 
+import com.amr.project.model.entity.*;
 import lombok.*;
 
 import java.math.BigDecimal;

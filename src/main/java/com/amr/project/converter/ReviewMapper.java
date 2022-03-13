@@ -7,10 +7,6 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
 public interface ReviewMapper {
-
-    ReviewMapper INSTANCE = Mappers.getMapper(ReviewMapper.class);
-
     ReviewDTO toReviewDto(Review review);
-
     Review toReview(ReviewDTO reviewDto);
 }

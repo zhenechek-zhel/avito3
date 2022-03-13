@@ -7,10 +7,7 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
 public interface FavoriteMapper {
-
     FavoriteMapper INSTANCE = Mappers.getMapper(FavoriteMapper.class);
-
     FavoriteDTO toFavoriteDto(Favorite favorite);
-
     Favorite toFavorite(FavoriteDTO favoriteDto);
 }

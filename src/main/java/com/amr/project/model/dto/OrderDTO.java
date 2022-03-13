@@ -1,6 +1,10 @@
 package com.amr.project.model.dto;
 
 import ch.qos.logback.core.status.Status;
+import com.amr.project.model.entity.Address;
+import com.amr.project.model.entity.Item;
+import com.amr.project.model.entity.User;
+import com.amr.project.model.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

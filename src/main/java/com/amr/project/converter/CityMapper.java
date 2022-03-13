@@ -1,16 +1,11 @@
 package com.amr.project.converter;
 
 import com.amr.project.model.dto.CityDTO;
-import com.amr.project.model.entity.City;
+import com.amr.project.model.entity.*;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
 public interface CityMapper {
-
-    CityMapper INSTANCE = Mappers.getMapper(CityMapper.class);
-
-    City toCity(CityDTO cityDTO);
-
-    CityDTO toCityDTO(City city);
+    CityDTO toDTO(City city);
+    City toEntity(CityDTO cityDTO);
 }

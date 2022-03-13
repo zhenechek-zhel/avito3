@@ -7,10 +7,6 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
 public interface ShopMapper {
-
-    ShopMapper INSTANCE = Mappers.getMapper(ShopMapper.class);
-
     ShopDTO toShopDto(Shop shop);
-
     Shop toShop(ShopDTO shopDto);
 }
