@@ -36,7 +36,7 @@ public class ItemToShopController {
             @PathVariable(name = "idItem") Long idItem,
             @PathVariable(name = "idShop") Long idShop,
             @RequestBody ItemDTO itemDtoToAdd) {
-        Item item = ItemMapper.INSTANCE.toItem(itemDtoToAdd);
+        Item item = ItemMapper.INSTANCE.(itemDtoToAdd);
         Set<Item> items = shopService.getShopById(idShop).getItems();
         if (!items.contains(item)) {
             items.add(itemService.getItemById(item.getId()));

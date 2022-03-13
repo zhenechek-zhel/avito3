@@ -11,6 +11,6 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring", uses = {CategoryMapper.class, ImageSetMapper.class, ReviewSetMapper.class,
         FavoriteSetMapper.class, OrderSetMapper.class, ShopMapper.class})
 public interface ItemMapper {
-    ItemDTO toItemDTO(Item item);
-    Item toItem(ItemDTO itemDTO);
+    ItemDTO toDTO(Item item);
+    Item toEntity(ItemDTO itemDTO);
 }

@@ -9,6 +9,6 @@ import org.mapstruct.Mapper;
         UserMapper.class, CartItemMapper.class, FeedbackSetMapper.class, DiscountSetMapper.class, FavoriteSetMapper.class,
 AddressMapper.class,CouponSetMapper.class})
 public interface ShopMapper {
-    ShopDTO toShopDto(Shop shop);
-    Shop toShop(ShopDTO shopDto);
+    ShopDTO toDTO(Shop shop);
+    Shop toEntity(ShopDTO shopDto);
 }

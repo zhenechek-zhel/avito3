@@ -10,6 +10,6 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring", uses = {UserMapper.class, ShopMapper.class,ItemMapper.class})
 public interface ReviewMapper {
-    ReviewDTO toReviewDto(Review review);
-    Review toReview(ReviewDTO reviewDto);
+    ReviewDTO toDTO(Review review);
+    Review toEntity(ReviewDTO reviewDto);
 }

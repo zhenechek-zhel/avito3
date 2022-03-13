@@ -8,6 +8,6 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring", uses = {ShopMapper.class, UserMapper.class, ItemMapper.class})
 public interface FavoriteMapper {
 
-    FavoriteDTO toFavoriteDto(Favorite favorite);
-    Favorite toFavorite(FavoriteDTO favoriteDto);
+    FavoriteDTO toDTO(Favorite favorite);
+    Favorite toEntity(FavoriteDTO favoriteDto);
 }
