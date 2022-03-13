@@ -30,5 +30,4 @@ public class OrderDTO {
     private AddressDTO addressDTO;
 
 
-
 }

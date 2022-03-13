@@ -1,6 +1,6 @@
 package com.amr.project.webapp.controller;
 
-import com.amr.project.converter.ItemMapper;
+import com.amr.project.converter.mappers.ItemMapper;
 import com.amr.project.converter.sets.ItemSetMapper;
 import com.amr.project.model.dto.ItemDTO;
 
@@ -14,14 +14,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
-import java.util.stream.Collectors;
 
 
 @RestController
 @RequestMapping("/api")
 @CrossOrigin
 public class ItemToShopController {
-
 
     private ItemService itemService;
     private ShopService shopService;

@@ -1,4 +1,4 @@
-package com.amr.project.converter;
+package com.amr.project.converter.mappers;
 
 import com.amr.project.converter.sets.FavoriteSetMapper;
 import com.amr.project.converter.sets.ImageSetMapper;
@@ -16,5 +16,6 @@ public interface ItemMapper {
     ItemMapper INSTANCE = Mappers.getMapper(ItemMapper.class);
 
     ItemDTO toDTO(Item item);
+
     Item toEntity(ItemDTO itemDTO);
 }

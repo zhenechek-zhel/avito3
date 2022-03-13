@@ -1,7 +1,10 @@
 package com.amr.project.model.dto;
 
 import com.amr.project.model.enums.Gender;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Calendar;
 

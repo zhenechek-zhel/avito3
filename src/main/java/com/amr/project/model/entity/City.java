@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -37,7 +36,6 @@ public class City {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Country country;
-
 
 
 }

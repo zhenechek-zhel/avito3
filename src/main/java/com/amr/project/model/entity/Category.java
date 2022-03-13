@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -23,18 +22,16 @@ public class Category {
     private Long id;
 
 
-
     @Column(name = "name")
     private String name;
-
 
 
     @OneToMany(
             mappedBy = "category",
             cascade = {CascadeType.PERSIST,
-            CascadeType.MERGE,
-            CascadeType.REFRESH,
-            CascadeType.DETACH},
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH,
+                    CascadeType.DETACH},
             orphanRemoval = true
     )
     private Set<Item> items;

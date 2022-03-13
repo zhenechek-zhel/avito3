@@ -1,6 +1,6 @@
 package com.amr.project.converter.sets;
 
-import com.amr.project.converter.ShopMapper;
+import com.amr.project.converter.mappers.ShopMapper;
 import com.amr.project.model.dto.ShopDTO;
 import com.amr.project.model.entity.Shop;
 import org.mapstruct.Mapper;
@@ -15,5 +15,6 @@ public interface ShopSetMapper {
 
 
     Set<ShopDTO> toDTOSet(Set<Shop> shops);
+
     Set<Shop> toEntitySet(Set<ShopDTO> shopDTOS);
 }
