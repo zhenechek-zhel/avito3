@@ -7,8 +7,8 @@ import org.mapstruct.Mapper;
 
 import java.util.Set;
 
-@Mapper(uses = ImageMapper.class)
+@Mapper(componentModel = "spring", uses = ImageMapper.class)
 public interface ImageSetMapper {
-    Set<Image> toEntitySet(Set<ImageDTO> dtos);
-    Set<ImageDTO> toDTOSet(Set<Image> entities);
+    Set<Image> toEntitySet(Set<ImageDTO> images);
+    Set<ImageDTO> toDTOSet(Set<Image> imageDTOS);
 }
