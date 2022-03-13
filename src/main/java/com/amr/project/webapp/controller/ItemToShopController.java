@@ -24,15 +24,13 @@ public class ItemToShopController {
 
     private ItemService itemService;
     private ShopService shopService;
-    @Autowired
-    private final ItemMapper itemMapper;
 
 
+
     @Autowired
-    public ItemToShopController(ItemService itemService, ShopService shopService, ItemMapper itemMapper) {
+    public ItemToShopController(ItemService itemService, ShopService shopService) {
         this.itemService = itemService;
         this.shopService = shopService;
-        this.itemMapper = itemMapper;
     }
 
     @PutMapping("/shop/{idShop}/items/{idItem}")
@@ -60,7 +58,7 @@ public class ItemToShopController {
             @PathVariable(name = "idShop") Long idShop,
             @RequestBody ItemDTO itemDtoToDelete) {
 
-        Item item = ItemMapper.INSTANCE.toItem(itemDtoToDelete);
+        Item item = ItemMapper.INSTANCE.toEntity(itemDtoToDelete);
         Set<Item> items = shopService.getShopById(idShop).getItems();
 
         if (items.contains(item)) {
