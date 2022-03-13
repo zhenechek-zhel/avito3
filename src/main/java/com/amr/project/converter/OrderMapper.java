@@ -8,6 +8,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring", uses = {UserMapper.class, ItemSetMapper.class,AddressMapper.class})
 public interface OrderMapper {
     // ToDo ENUM Status status добавить в мэппинг
-    OrderDTO toOrderDto(Order order);
-    Order toOrder(OrderDTO orderDto);
+    OrderDTO toDto(Order order);
+    Order toEntity(OrderDTO orderDto);
 }
+
