@@ -13,7 +13,8 @@ import java.util.List;
 public class ItemServiceImpl implements ItemService {
 
     private ItemRepository itemRepository;
-
+    @Autowired
+    private  ItemMapper itemMapper;
 
     @Autowired
     public ItemServiceImpl(ItemRepository itemRepository) {

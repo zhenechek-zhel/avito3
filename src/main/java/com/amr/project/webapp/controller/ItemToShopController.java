@@ -24,7 +24,7 @@ public class ItemToShopController {
 
     private ItemService itemService;
     private ShopService shopService;
-
+    @Autowired
     private final ItemMapper itemMapper;
 
 
