@@ -1,10 +1,7 @@
 package com.amr.project.converter.sets;
 
 
-import com.amr.project.converter.CityMapper;
-import com.amr.project.converter.OrderMapper;
-import com.amr.project.converter.ShopMapper;
-import com.amr.project.converter.UserMapper;
+
 import com.amr.project.model.dto.AddressDTO;
 import com.amr.project.model.entity.Address;
 import org.mapstruct.Mapper;
