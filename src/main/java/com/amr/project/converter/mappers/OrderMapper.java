@@ -10,9 +10,7 @@ import org.mapstruct.factory.Mappers;
 public interface OrderMapper {
     OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);
 
-    // ToDo ENUM Status status добавить в мэппинг
     OrderDTO toDto(Order order);
-
     Order toEntity(OrderDTO orderDto);
 }
 
