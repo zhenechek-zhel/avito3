@@ -5,7 +5,7 @@ import com.amr.project.model.entity.CartItem;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface CartItemMapper {
 
     CartItemMapper INSTANCE = Mappers.getMapper(CartItemMapper.class);

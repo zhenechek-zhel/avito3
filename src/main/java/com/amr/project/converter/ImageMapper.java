@@ -5,7 +5,7 @@ import com.amr.project.model.entity.Image;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ImageMapper {
 
     ImageMapper INSTANCE = Mappers.getMapper(ImageMapper.class);
