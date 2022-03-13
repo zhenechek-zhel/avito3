@@ -6,7 +6,7 @@ import com.amr.project.model.dto.CountryDTO;
 import com.amr.project.model.entity.Country;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring", uses = {CitySetMapper.class, ShopSetMapper.class})
+@Mapper(componentModel = "spring", uses = {CitySetMapper.class, ShopSetMapper.class, CountryMapper.class})
 public interface CountryMapper {
     CountryDTO toDTO(Country country);
     Country toEntity(CountryDTO countryDTO);

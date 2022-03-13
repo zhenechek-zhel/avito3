@@ -9,6 +9,6 @@ import java.util.Set;
 
 @Mapper(componentModel = "spring", uses = ShopMapper.class)
 public interface ShopSetMapper {
-    Set<ShopDTO> toDTOSet(Set<Shop> shop);
-    Set<Shop> toEntitySet(Set<ShopDTO> shop);
+    Set<ShopDTO> toDTOSet(Set<Shop> shops);
+    Set<Shop> toEntitySet(Set<ShopDTO> shopDTOS);
 }

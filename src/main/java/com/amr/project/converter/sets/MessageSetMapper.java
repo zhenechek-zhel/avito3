@@ -12,6 +12,6 @@ import java.util.Set;
 
 @Mapper(componentModel = "spring", uses = MessageMapper.class)
 public interface MessageSetMapper {
-    Set<MessageDTO> toDTOSet(Set<Message> message);
-    Set<Message> toEntitySet(Set<MessageDTO> message);
+    Set<MessageDTO> toDTOSet(Set<Message> messages);
+    Set<Message> toEntitySet(Set<MessageDTO> messageDTOS);
 }

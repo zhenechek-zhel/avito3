@@ -12,6 +12,6 @@ import java.util.Set;
 
 @Mapper(componentModel = "spring", uses = UserInfoMapper.class)
 public interface UserInfoSetMapper {
-    Set<UserInfoDTO> toDTOSet(Set<UserInfo> userInfo);
-    Set<UserInfo> toEntitySet(Set<UserInfoDTO> userInfo);
+    Set<UserInfoDTO> toDTOSet(Set<UserInfo> userInfos);
+    Set<UserInfo> toEntitySet(Set<UserInfoDTO> userInfoDTOS);
 }

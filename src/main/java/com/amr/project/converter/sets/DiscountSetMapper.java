@@ -12,6 +12,6 @@ import java.util.Set;
 
 @Mapper(componentModel = "spring", uses = DiscountMapper.class)
 public interface DiscountSetMapper {
-    Set<DiscountDTO> toDTOSet(Set<Discount> discount);
-    Set<Discount> toEntitySet(Set<DiscountDTO> discount);
+    Set<DiscountDTO> toDTOSet(Set<Discount> discounts);
+    Set<Discount> toEntitySet(Set<DiscountDTO> discountDTOS);
 }

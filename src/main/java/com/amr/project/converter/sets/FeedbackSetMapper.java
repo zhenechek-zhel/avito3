@@ -12,6 +12,6 @@ import java.util.Set;
 
 @Mapper(componentModel = "spring", uses = FeedbackMapper.class)
 public interface FeedbackSetMapper {
-    Set<FeedbackDTO> toDTOSet(Set<Feedback> feedback);
-    Set<Feedback> toEntitySet(Set<FeedbackDTO> feedback);
+    Set<FeedbackDTO> toDTOSet(Set<Feedback> feedbacks);
+    Set<Feedback> toEntitySet(Set<FeedbackDTO> feedbackDTOS);
 }
