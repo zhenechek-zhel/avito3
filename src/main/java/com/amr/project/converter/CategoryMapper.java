@@ -5,7 +5,7 @@ import com.amr.project.model.entity.Category;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface CategoryMapper {
     CategoryMapper INSTANCE = Mappers.getMapper(CategoryMapper.class);
     CategoryDTO toCategoryDTO (Category category);
