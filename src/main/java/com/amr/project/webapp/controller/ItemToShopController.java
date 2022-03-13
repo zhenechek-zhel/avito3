@@ -1,6 +1,7 @@
 package com.amr.project.webapp.controller;
 
 import com.amr.project.converter.ItemMapper;
+import com.amr.project.converter.sets.ItemSetMapper;
 import com.amr.project.model.dto.ItemDTO;
 
 import com.amr.project.model.entity.Item;
@@ -52,9 +53,7 @@ public class ItemToShopController {
             @PathVariable(name = "idShop") Long idShop,
             @RequestBody ItemDTO itemDtoToAdd) {
         Item item = ItemMapper.INSTANCE.toEntity(itemDtoToAdd);
-
         Set<Item> items = shopService.getShopById(idShop).getItems();
-
         if (!items.contains(item)) {
             items.add(itemService.getItemById(item.getId()));
             return new ResponseEntity<>(HttpStatus.OK);
@@ -62,17 +61,13 @@ public class ItemToShopController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-
-
     @DeleteMapping("/shop/{idShop}/items/{idItem}")
     public ResponseEntity<HttpStatus> deleteItemFromShop(
             @PathVariable(name = "idItem") Long idItem,
             @PathVariable(name = "idShop") Long idShop,
             @RequestBody ItemDTO itemDtoToDelete) {
-
         Item item = ItemMapper.INSTANCE.toEntity(itemDtoToDelete);
         Set<Item> items = shopService.getShopById(idShop).getItems();
-
         if (!items.contains(item)) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -80,26 +75,20 @@ public class ItemToShopController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-
-
     @PatchMapping("/shop/{idShop}/items/{idItem}")
     public ResponseEntity<HttpStatus> editItem(
             @PathVariable(name = "idItem") Long idItem,
             @PathVariable(name = "idShop") Long idShop,
             @RequestBody ItemDTO itemDtoToUpdate) {
-
         Item item = ItemMapper.INSTANCE.toEntity(itemDtoToUpdate);
         Set<Item> items = shopService.getShopById(idShop).getItems();
-
         if (!items.contains(item)) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
         items.stream()
                 .filter(item1 -> item1.getId().equals(idItem))
                 .findFirst()
                 .ifPresent(i -> itemService.updateItem(i));
-
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
