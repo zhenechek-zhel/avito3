@@ -6,7 +6,7 @@ import com.amr.project.model.entity.Order;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(uses = {UserMapper.class, ItemSetMapper.class,AddressMapper.class})
+@Mapper(uses = {UserMapper.class, ItemSetMapper.class,AddressMapper.class, StatusMapper.class})
 public interface OrderMapper {
     OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);
     // ToDo ENUM Status status добавить в мэппинг
