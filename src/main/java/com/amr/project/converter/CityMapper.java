@@ -1,7 +1,7 @@
 package com.amr.project.converter;
 
 import com.amr.project.model.dto.CityDTO;
-import com.amr.project.model.entity.*;
+import com.amr.project.model.entity.City;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

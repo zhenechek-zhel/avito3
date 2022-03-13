@@ -1,6 +1,7 @@
 package com.amr.project.webapp.controller;
 
 import com.amr.project.converter.ItemMapper;
+import com.amr.project.converter.sets.ItemSetMapper;
 import com.amr.project.model.dto.ItemDTO;
 
 import com.amr.project.model.entity.Item;
@@ -24,15 +25,12 @@ public class ItemToShopController {
 
     private ItemService itemService;
     private ShopService shopService;
-    @Autowired
-    private final ItemMapper itemMapper;
 
 
     @Autowired
-    public ItemToShopController(ItemService itemService, ShopService shopService, ItemMapper itemMapper) {
+    public ItemToShopController(ItemService itemService, ShopService shopService) {
         this.itemService = itemService;
         this.shopService = shopService;
-        this.itemMapper = itemMapper;
     }
 
     @PutMapping("/shop/{idShop}/items/{idItem}")
@@ -40,14 +38,12 @@ public class ItemToShopController {
             @PathVariable(name = "idItem") Long idItem,
             @PathVariable(name = "idShop") Long idShop,
             @RequestBody ItemDTO itemDtoToAdd) {
-        Item item = ;
+        Item item = ItemMapper.INSTANCE.toEntity(itemDtoToAdd);
         Set<Item> items = shopService.getShopById(idShop).getItems();
         if (!items.contains(item)) {
             items.add(itemService.getItemById(item.getId()));
         }
-        items.stream()
-                .map(ItemMapper.INSTANCE::toItemDTO)
-                .collect(Collectors.toSet());
+        ItemSetMapper.INSTANCE.toDTOSet(items);
 
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
