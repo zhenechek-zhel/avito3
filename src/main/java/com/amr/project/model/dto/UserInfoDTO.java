@@ -16,8 +16,8 @@ public class UserInfoDTO {
     private String firstName;
     private String lastName;
     private int age;
-    private Gender gender;
 
+    private Gender gender;
     private Calendar birthday;
     private UserDTO user;
 }

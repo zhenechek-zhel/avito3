@@ -25,13 +25,13 @@ public class ItemToShopController {
     private ItemService itemService;
     private ShopService shopService;
 
-
-
     @Autowired
     public ItemToShopController(ItemService itemService, ShopService shopService) {
         this.itemService = itemService;
         this.shopService = shopService;
     }
+
+    @GetMapping
 
     @PutMapping("/shop/{idShop}/items/{idItem}")
     public ResponseEntity<Set<Item>> addItemInShop(
@@ -65,10 +65,6 @@ public class ItemToShopController {
             items.remove(itemService.getItemById(item.getId()));
         }
     }
-
-
-
-
 
     @PatchMapping("/shop/{idShop}/items/{idItem}")
     public ResponseEntity<Set<Item>> editItem(
