@@ -23,7 +23,6 @@ public class OrderDTO {
     private String currency;
     private String description;
 
-
     private Status status;
     private UserDTO userDTO;
     private Set<ItemDTO> itemsInOrderDTO;
