@@ -7,11 +7,11 @@ import org.mapstruct.Mapper;
 
 import java.util.Set;
 
-@Mapper(uses = FavoriteMapper.class)
+@Mapper(componentModel = "spring", uses = FavoriteMapper.class)
 public interface FavoriteSetMapper {
 
 
-    Set<Favorite> toFavoriteSet(Set<FavoriteDTO> dtos);
+    Set<Favorite> toFavoriteSet(Set<FavoriteDTO> favorites);
 
-    Set<FavoriteDTO> toFavoriteDTOSet(Set<Favorite> entities);
+    Set<FavoriteDTO> toFavoriteDTOSet(Set<Favorite> favoriteDTOS);
 }

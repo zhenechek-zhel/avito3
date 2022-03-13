@@ -10,7 +10,7 @@ import java.util.Set;
 @Mapper(uses = ImageMapper.class)
 public interface ImageSetMapper {
 
-    Set<Image> toImageSet(Set<ImageDTO> dtos);
+    Set<Image> toImageSet(Set<ImageDTO> images);
 
-    Set<ImageDTO> toImageDTO(Set<Image> entities);
+    Set<ImageDTO> toImageDTO(Set<Image> imageDTOS);
 }

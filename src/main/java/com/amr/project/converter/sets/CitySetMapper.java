@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Mapper(componentModel = "spring", uses = CityMapper.class)
 public interface CitySetMapper {
-    Set<CityDTO> toDTOSet(Set<City> city);
-    Set<City> toEntitySet(Set<CityDTO> city);
+    Set<CityDTO> toDTOSet(Set<City> cities);
+    Set<City> toEntitySet(Set<CityDTO> cityDTOS);
 }
 

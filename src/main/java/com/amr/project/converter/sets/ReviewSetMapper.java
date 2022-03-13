@@ -7,10 +7,10 @@ import org.mapstruct.Mapper;
 
 import java.util.Set;
 
-@Mapper(uses = ReviewMapper.class)
+@Mapper(componentModel = "spring", uses = ReviewMapper.class)
 public interface ReviewSetMapper {
 
-    Set<Review> toReviewSet(Set<ReviewDTO> dtos);
+    Set<Review> toEntitySet(Set<ReviewDTO> reviewDTOS);
 
-    Set<ReviewDTO> toReviewDTOSet(Set<Review> entities);
+    Set<ReviewDTO> toDTOSet(Set<Review> reviews);
 }

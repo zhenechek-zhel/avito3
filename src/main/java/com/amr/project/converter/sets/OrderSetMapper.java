@@ -7,11 +7,11 @@ import org.mapstruct.Mapper;
 
 import java.util.Set;
 
-@Mapper(uses = OrderMapper.class)
+@Mapper(componentModel = "spring", uses = OrderMapper.class)
 public interface OrderSetMapper {
 
-    Set<Order> toOrderSet(Set<OrderDTO> dtos);
+    Set<Order> toEntitySet(Set<OrderDTO> orderDTOS);
 
-    Set<OrderDTO> toReviewDTOSet(Set<Order> entities);
+    Set<OrderDTO> toDTOSet(Set<Order> orders);
 
 }
