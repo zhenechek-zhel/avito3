@@ -6,12 +6,11 @@ import com.amr.project.model.entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-
 @Mapper(uses = {CouponSetMapper.class, CartItemSetMapper.class, OrderSetMapper.class,
         ReviewSetMapper.class, ShopSetMapper.class, DiscountSetMapper.class, MessageSetMapper.class,ChatSetMapper.class,
-        FeedbackSetMapper.class, UserInfoMapper.class, FavoriteMapper.class,AddressMapper.class, ImageSetMapper.class})
+        FeedbackSetMapper.class, UserInfoMapper.class, FavoriteMapper.class,AddressMapper.class, ImageSetMapper.class,
+        RolesMapper.class})
 public interface UserMapper {
-    //ToDo прописать Roles Mapper (ENUM)
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
     UserDTO toDTO(User user);
     User toEntity(UserDTO userDTO);

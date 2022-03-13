@@ -1,7 +1,6 @@
 package com.amr.project.webapp.controller;
 
 import com.amr.project.converter.ItemMapper;
-import com.amr.project.converter.sets.ItemSetMapper;
 import com.amr.project.model.dto.ItemDTO;
 
 import com.amr.project.model.entity.Item;
@@ -26,24 +25,27 @@ public class ItemToShopController {
     private ItemService itemService;
     private ShopService shopService;
 
-
     @Autowired
     public ItemToShopController(ItemService itemService, ShopService shopService) {
         this.itemService = itemService;
         this.shopService = shopService;
     }
 
+    @GetMapping
+
     @PutMapping("/shop/{idShop}/items/{idItem}")
     public ResponseEntity<Set<Item>> addItemInShop(
             @PathVariable(name = "idItem") Long idItem,
             @PathVariable(name = "idShop") Long idShop,
             @RequestBody ItemDTO itemDtoToAdd) {
-        Item item = ItemMapper.INSTANCE.toEntity(itemDtoToAdd);
+        Item item = ;
         Set<Item> items = shopService.getShopById(idShop).getItems();
         if (!items.contains(item)) {
             items.add(itemService.getItemById(item.getId()));
         }
-        ItemSetMapper.INSTANCE.toDTOSet(items);
+        items.stream()
+                .map(ItemMapper.INSTANCE::toItemDTO)
+                .collect(Collectors.toSet());
 
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
@@ -56,17 +58,13 @@ public class ItemToShopController {
             @PathVariable(name = "idShop") Long idShop,
             @RequestBody ItemDTO itemDtoToDelete) {
 
-        Item item = ItemMapper.INSTANCE.toItem(itemDtoToDelete);
+        Item item = ItemMapper.INSTANCE.toEntity(itemDtoToDelete);
         Set<Item> items = shopService.getShopById(idShop).getItems();
 
         if (items.contains(item)) {
             items.remove(itemService.getItemById(item.getId()));
         }
     }
-
-
-
-
 
     @PatchMapping("/shop/{idShop}/items/{idItem}")
     public ResponseEntity<Set<Item>> editItem(
