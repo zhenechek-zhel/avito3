@@ -1,13 +1,16 @@
 package com.amr.project.model.dto;
 
 import com.amr.project.model.entity.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.*;
 import javax.validation.constraints.*;
-
+import javax.xml.stream.Location;
+import java.util.Set;
 
 
 @Getter
@@ -21,11 +24,11 @@ public class ShopDto {
     private String name;
 
     @JsonProperty(required = true)
-    @Email(message = "Email should be valid")
+//    @Email(message = "Email should be valid")
     private String email;
 
     @JsonProperty(required = true)
-    @Pattern(regexp = "(^$|[0-9]{10})")
+//    @Pattern(regexp = "(^$|[0-9]{10})")
     private String phone;
 
     @JsonProperty(required = true)
@@ -33,19 +36,44 @@ public class ShopDto {
     @NotBlank
     private String description;
 
-    @JsonProperty(required = true)
-    @NotNull
-    private Country location;
+    private int count;
 
-    @JsonProperty(required = true)
-    @NotNull
-    private Image logo;
+    private double rating;
 
-    @JsonProperty(required = true)
-    @NotNull
-    private User user;
+    private CountryDto location;
 
-    @JsonProperty(required = true)
-    @NotNull
-    private Address address;
+    @JsonIgnore
+    private Set<ItemDto> items;
+
+    @JsonIgnore
+    private Set<ReviewDto> reviews;
+
+    @JsonIgnore
+    private ImageDto logo;
+
+    @JsonIgnore
+    private UserDto user;
+
+    @JsonIgnore
+    private CartItemDto cartItem;
+
+    @JsonIgnore
+    private Set<FeedbackDto> feedback;
+
+    @JsonIgnore
+    private Set<DiscountDto> discounts;
+
+    @JsonIgnore
+    private Set<FavoriteDto> favorites;
+
+    @JsonIgnore
+    private AddressDto address;
+
+    @JsonIgnore
+    private Set<CouponDto> coupons;
+
+    private boolean isModerated;
+    private boolean isModerateAccept;
+    private String moderatedRejectReason;
+    private boolean isPretendentToBeDeleted;
 }
