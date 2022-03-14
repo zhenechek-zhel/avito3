@@ -6,7 +6,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -53,7 +56,7 @@ public class User implements UserDetails {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "user_id")
-    private List<Image> images;
+    private Set<Image> images;
 
 
     @OneToMany(
@@ -64,7 +67,7 @@ public class User implements UserDetails {
                     CascadeType.DETACH,
                     CascadeType.REFRESH},
             orphanRemoval = true)
-    private List<Coupon> coupons;
+    private Set<Coupon> coupons;
 
 
     @OneToMany(
@@ -72,7 +75,7 @@ public class User implements UserDetails {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<CartItem> cart;
+    private Set<CartItem> cart;
 
 
     @OneToMany(
@@ -80,7 +83,7 @@ public class User implements UserDetails {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<Order> orders;
+    private Set<Order> orders;
 
 
     @OneToMany(
@@ -88,7 +91,7 @@ public class User implements UserDetails {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<Review> reviews;
+    private Set<Review> reviews;
 
 
     @OneToMany(
@@ -100,13 +103,13 @@ public class User implements UserDetails {
                     CascadeType.REFRESH},
             orphanRemoval = true
     )
-    private List<Shop> shops;
+    private Set<Shop> shops;
 
 
     @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true)
     @JoinColumn(name = "user_id")
-    private List<Discount> discounts;
+    private Set<Discount> discounts;
 
 
     @OneToMany(
@@ -114,14 +117,14 @@ public class User implements UserDetails {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<Message> messages;
+    private Set<Message> messages;
 
 
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(name = "user_chat",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "chat_id"))
-    private List<Chat> chats;
+    private Set<Chat> chats;
 
 
     @OneToMany(
@@ -132,11 +135,11 @@ public class User implements UserDetails {
                     CascadeType.DETACH},
             orphanRemoval = true
     )
-    private List<Feedback> feedbacks;
+    private Set<Feedback> feedbacks;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(role);
+        return new HashSet<Roles>(Arrays.asList(role));
     }
 
     @Override
