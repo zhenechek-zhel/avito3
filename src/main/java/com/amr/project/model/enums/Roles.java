@@ -11,12 +11,8 @@ public enum Roles implements GrantedAuthority{
     ADMIN,
     ANONYMOUS;
 
-
-
     @Override
     public String getAuthority() {
         return null;
     }
-
-
 }
