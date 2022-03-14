@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.Set;
 
-@Mapper(componentModel = "spring", uses = ReviewMapper.class)
+@Mapper(uses = ReviewMapper.class)
 public interface ReviewSetMapper {
 
     ReviewSetMapper INSTANCE = Mappers.getMapper(ReviewSetMapper.class);

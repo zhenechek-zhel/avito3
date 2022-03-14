@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.Set;
 
-@Mapper(componentModel = "spring", uses = ImageMapper.class)
+@Mapper(uses = ImageMapper.class)
 public interface ImageSetMapper {
 
     ImageSetMapper INSTANCE = Mappers.getMapper(ImageSetMapper.class);

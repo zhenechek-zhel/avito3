@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.Set;
 
-@Mapper(componentModel = "spring", uses = CartItemMapper.class)
+@Mapper(uses = CartItemMapper.class)
 public interface CartItemSetMapper {
 
     CartItemSetMapper INSTANCE = Mappers.getMapper(CartItemSetMapper.class);

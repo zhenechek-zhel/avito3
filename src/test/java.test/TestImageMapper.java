@@ -25,7 +25,7 @@ import static org.hamcrest.Matchers.equalTo;
 @SpringBootTest
 public class TestImageMapper {
 
-    private final ItemSetMapper itemSetMapper = new ItemSetMapperImpl();
+  /*  private final ItemSetMapper itemSetMapper = new ItemSetMapperImpl();
 
    private final UserSetMapper userSetMapper = new UserSetMapperImpl();
 
@@ -60,5 +60,5 @@ public class TestImageMapper {
         Assertions.assertEquals(city.getId(), cityDTO.getId());
         Assertions.assertEquals(city.getName(), cityDTO.getName());
 
-    }
+    }*/
 }

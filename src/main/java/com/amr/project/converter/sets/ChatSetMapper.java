@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.Set;
 
-@Mapper(componentModel = "spring", uses = ChatMapper.class)
+@Mapper( uses = ChatMapper.class)
 public interface ChatSetMapper {
 
     ChatSetMapper INSTANCE = Mappers.getMapper(ChatSetMapper.class);

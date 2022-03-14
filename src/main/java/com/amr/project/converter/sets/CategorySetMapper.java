@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.Set;
 
-@Mapper(componentModel = "spring", uses = CategoryMapper.class)
+@Mapper( uses = CategoryMapper.class)
 public interface CategorySetMapper {
 
 

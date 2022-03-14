@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.Set;
 
-@Mapper(componentModel = "spring", uses = FeedbackMapper.class)
+@Mapper(uses = FeedbackMapper.class)
 public interface FeedbackSetMapper {
 
     FeedbackSetMapper INSTANCE = Mappers.getMapper(FeedbackSetMapper.class);

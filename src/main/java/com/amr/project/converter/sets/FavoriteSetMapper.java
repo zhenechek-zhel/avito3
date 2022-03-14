@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.Set;
 
-@Mapper(componentModel = "spring", uses = FavoriteMapper.class)
+@Mapper(uses = FavoriteMapper.class)
 public interface FavoriteSetMapper {
 
     FavoriteSetMapper INSTANCE = Mappers.getMapper(FavoriteSetMapper.class);

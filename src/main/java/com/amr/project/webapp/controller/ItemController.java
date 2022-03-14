@@ -64,7 +64,7 @@ public class ItemController {
 
     @DeleteMapping("/items/{id}")
     public ResponseEntity<Long> deleteItem(@PathVariable(name = "id") Long id) {
-
+        return new ResponseEntity<>(null, HttpStatus.OK);
     }
 
 }
