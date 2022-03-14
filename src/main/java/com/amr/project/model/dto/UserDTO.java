@@ -25,7 +25,7 @@ public class UserDTO {
     private String activationCode;
     private boolean isUsingTwoFactorAuth;
     private String secret;
-    private Roles role;
+    private RolesDTO role;
     private UserInfoDTO userInfo;
     private FavoriteDTO favorite;
     private AddressDTO address;

@@ -5,6 +5,8 @@ import com.amr.project.dao.abstracts.ItemRepository;
 import com.amr.project.model.entity.Item;
 import com.amr.project.service.abstracts.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,8 +15,7 @@ import java.util.List;
 public class ItemServiceImpl implements ItemService {
 
     private ItemRepository itemRepository;
-    @Autowired
-    private ItemMapper itemMapper;
+
 
     @Autowired
     public ItemServiceImpl(ItemRepository itemRepository) {
@@ -42,6 +43,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
+    @Secured("hasAuthority('ROLE_ADMIN')")
     public void deleteItem(Long id) {
         itemRepository.deleteById(id);
     }

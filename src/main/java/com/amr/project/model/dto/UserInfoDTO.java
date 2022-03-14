@@ -20,7 +20,7 @@ public class UserInfoDTO {
     private String lastName;
     private int age;
 
-    private Gender gender;
+    private GenderDTO gender;
     private Calendar birthday;
     private UserDTO user;
 }

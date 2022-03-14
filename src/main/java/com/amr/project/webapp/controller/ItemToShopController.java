@@ -21,6 +21,8 @@ import java.util.Set;
 @CrossOrigin
 public class ItemToShopController {
 
+    //TODO подумать над методом удаления, нужен ли RequestBody, Обсудить delete
+
     private ItemService itemService;
     private ShopService shopService;
 
@@ -54,6 +56,7 @@ public class ItemToShopController {
         Set<Item> items = shopService.getShopById(idShop).getItems();
         if (!items.contains(item)) {
             items.add(itemService.getItemById(item.getId()));
+            ItemSetMapper.INSTANCE.toDTOSet(items);
             return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -62,14 +65,14 @@ public class ItemToShopController {
     @DeleteMapping("/shop/{idShop}/items/{idItem}")
     public ResponseEntity<HttpStatus> deleteItemFromShop(
             @PathVariable(name = "idItem") Long idItem,
-            @PathVariable(name = "idShop") Long idShop,
-            @RequestBody ItemDTO itemDtoToDelete) {
-        Item item = ItemMapper.INSTANCE.toEntity(itemDtoToDelete);
+            @PathVariable(name = "idShop") Long idShop) {
+
+        Item item = itemService.getItemById(idItem);
         Set<Item> items = shopService.getShopById(idShop).getItems();
         if (!items.contains(item)) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        items.remove(itemService.getItemById(idItem));
+        items.remove(item);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -87,6 +90,7 @@ public class ItemToShopController {
                 .filter(item1 -> item1.getId().equals(idItem))
                 .findFirst()
                 .ifPresent(i -> itemService.updateItem(i));
+        ItemSetMapper.INSTANCE.toDTOSet(items);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

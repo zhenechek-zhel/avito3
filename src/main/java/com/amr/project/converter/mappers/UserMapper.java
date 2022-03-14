@@ -1,8 +1,11 @@
 package com.amr.project.converter.mappers;
 
 import com.amr.project.converter.sets.*;
+import com.amr.project.model.dto.RolesDTO;
 import com.amr.project.model.dto.UserDTO;
 import com.amr.project.model.entity.User;
+import com.amr.project.model.enums.Roles;
+import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
@@ -16,5 +19,8 @@ public interface UserMapper {
     UserDTO toDTO(User user);
 
     User toEntity(UserDTO userDTO);
+
+    @InheritInverseConfiguration
+    Roles rolesDtoToRoles(RolesDTO rolesDTO);
 }
 
