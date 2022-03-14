@@ -24,13 +24,11 @@ public class Order {
     @Column(name = "id", nullable = false)
     private Long id;
 
-
-
-    @Column(name = "data", nullable = false)
-    private Calendar orderDate;//дата заказа
-
-    @Column(name = "delyv_data")
-    private Calendar expectedDeliveryDate;//ожидаемая дата доставки
+//    @Column(name = "data", nullable = false)
+//    private Calendar orderDate;//дата заказа
+//
+//    @Column(name = "delyv_data")
+//    private Calendar expectedDeliveryDate;//ожидаемая дата доставки
 
     @Column(name = "total")
     private BigDecimal grandTotal;
