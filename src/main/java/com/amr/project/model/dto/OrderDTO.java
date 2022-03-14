@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -26,7 +27,7 @@ public class OrderDTO {
 
     private StatusDTO status;
     private UserDTO userDTO;
-    private Set<ItemDTO> itemsInOrderDTO;
+    private List<ItemDTO> itemsInOrderDTO;
     private AddressDTO addressDTO;
 
 

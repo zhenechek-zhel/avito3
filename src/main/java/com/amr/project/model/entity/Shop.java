@@ -3,6 +3,7 @@ package com.amr.project.model.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Builder
@@ -38,7 +39,7 @@ public class Shop {
             cascade = CascadeType.ALL,
             orphanRemoval = false
     )
-    private Set<Item> items;
+    private List<Item> items;
 
 
     @OneToMany(
@@ -46,7 +47,7 @@ public class Shop {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private Set<Review> reviews;
+    private List<Review> reviews;
 
 
     @OneToOne(mappedBy = "shop", cascade = CascadeType.ALL,
@@ -68,7 +69,7 @@ public class Shop {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private Set<Feedback> feedbacks;
+    private List<Feedback> feedbacks;
 
 
     @OneToMany(
@@ -78,11 +79,11 @@ public class Shop {
                     CascadeType.REFRESH,
                     CascadeType.DETACH},
             orphanRemoval = true)
-    private Set<Discount> discounts;
+    private List<Discount> discounts;
 
 
     @ManyToMany(mappedBy = "shops")
-    private Set<Favorite> favorites;
+    private List<Favorite> favorites;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -94,7 +95,7 @@ public class Shop {
             orphanRemoval = true
     )
     @JoinColumn(name = "shop_id")
-    private Set<Coupon> coupons;
+    private List<Coupon> coupons;
 
 
     private boolean isModerated = false;

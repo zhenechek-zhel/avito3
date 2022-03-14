@@ -6,14 +6,14 @@ import com.amr.project.model.entity.CartItem;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper(uses = CartItemMapper.class)
-public interface CartItemSetMapper {
+public interface CartItemListMapper {
 
-    CartItemSetMapper INSTANCE = Mappers.getMapper(CartItemSetMapper.class);
+    CartItemListMapper INSTANCE = Mappers.getMapper(CartItemListMapper.class);
 
-    Set<CartItemDTO> toDTOSet(Set<CartItem> cartItems);
+    List<CartItemDTO> toDTOList(List<CartItem> cartItems);
 
-    Set<CartItem> toEntitySet(Set<CartItemDTO> cartItemDTOSet);
+    List<CartItem> toEntityList(List<CartItemDTO> cartItemDTOList);
 }

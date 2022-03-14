@@ -6,16 +6,16 @@ import com.amr.project.model.entity.Order;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper(uses = OrderMapper.class)
-public interface OrderSetMapper {
+public interface OrderListMapper {
 
-    OrderSetMapper INSTANCE = Mappers.getMapper(OrderSetMapper.class);
+    OrderListMapper INSTANCE = Mappers.getMapper(OrderListMapper.class);
 
 
-    Set<Order> toEntitySet(Set<OrderDTO> dtos);
+    List<Order> toEntityList(List<OrderDTO> dtos);
 
-    Set<OrderDTO> toDTOSet(Set<Order> entities);
+    List<OrderDTO> toDTOList(List<Order> entities);
 
 }

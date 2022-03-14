@@ -6,14 +6,14 @@ import com.amr.project.model.entity.Country;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper(uses = CountryMapper.class)
-public interface CountrySetMapper {
+public interface CountryListMapper {
 
-    CountrySetMapper INSTANCE = Mappers.getMapper(CountrySetMapper.class);
+    CountryListMapper INSTANCE = Mappers.getMapper(CountryListMapper.class);
 
-    Set<CountryDTO> toDTOSet(Set<Country> countries);
+    List<CountryDTO> toDTOList(List<Country> countries);
 
-    Set<Country> toEntitySet(Set<CountryDTO> countryDTOS);
+    List<Country> toEntityList(List<CountryDTO> countryDTOS);
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -34,6 +35,6 @@ public class Category {
                     CascadeType.DETACH},
             orphanRemoval = true
     )
-    private Set<Item> items;
+    private List<Item> items;
 
 }

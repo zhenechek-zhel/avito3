@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -26,10 +27,10 @@ public class ItemDTO {
 
     private CategoryDTO categoryDTO;
     private CartItemDTO cartItemDTO;
-    private Set<ImageDTO> imagesDTO;
-    private Set<ReviewDTO> reviewsDTO;
-    private Set<FavoriteDTO> favoritesDTO;
-    private Set<OrderDTO> ordersDTO;
+    private List<ImageDTO> imagesDTO;
+    private List<ReviewDTO> reviewsDTO;
+    private List<FavoriteDTO> favoritesDTO;
+    private List<OrderDTO> ordersDTO;
     private ShopDTO shopDTO;
 
     private boolean isModerated;

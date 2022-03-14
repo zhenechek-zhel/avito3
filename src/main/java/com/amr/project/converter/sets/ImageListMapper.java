@@ -6,14 +6,14 @@ import com.amr.project.model.entity.Image;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper(uses = ImageMapper.class)
-public interface ImageSetMapper {
+public interface ImageListMapper {
 
-    ImageSetMapper INSTANCE = Mappers.getMapper(ImageSetMapper.class);
+    ImageListMapper INSTANCE = Mappers.getMapper(ImageListMapper.class);
 
-    Set<Image> toEntitySet(Set<ImageDTO> images);
+    List<Image> toEntityList(List<ImageDTO> images);
 
-    Set<ImageDTO> toDTOSet(Set<Image> imageDTOS);
+    List<ImageDTO> toDTOList(List<Image> imageDTOS);
 }

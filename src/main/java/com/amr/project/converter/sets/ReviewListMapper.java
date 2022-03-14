@@ -6,15 +6,15 @@ import com.amr.project.model.entity.Review;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper(uses = ReviewMapper.class)
-public interface ReviewSetMapper {
+public interface ReviewListMapper {
 
-    ReviewSetMapper INSTANCE = Mappers.getMapper(ReviewSetMapper.class);
+    ReviewListMapper INSTANCE = Mappers.getMapper(ReviewListMapper.class);
 
 
-    Set<Review> toEntitySet(Set<ReviewDTO> dtos);
+    List<Review> toEntityList(List<ReviewDTO> dtos);
 
-    Set<ReviewDTO> toDTOSet(Set<Review> entities);
+    List<ReviewDTO> toDTOList(List<Review> entities);
 }

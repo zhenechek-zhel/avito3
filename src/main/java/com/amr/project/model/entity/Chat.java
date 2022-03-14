@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -31,10 +32,10 @@ public class Chat {
                     CascadeType.DETACH},
             orphanRemoval = true
     )
-    private Set<Message> messages;
+    private List<Message> messages;
 
 
     @ManyToMany(mappedBy = "chats")
-    private Set<User> users;
+    private List<User> users;
 
 }

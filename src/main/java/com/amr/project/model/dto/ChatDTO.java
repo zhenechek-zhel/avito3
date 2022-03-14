@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -16,7 +17,7 @@ public class ChatDTO {
     private Long id;
     private Long hash;
 
-    private Set<MessageDTO> messagesDTO;
-    private Set<UserDTO> usersDTO;
+    private List<MessageDTO> messagesDTO;
+    private List<UserDTO> usersDTO;
 
 }

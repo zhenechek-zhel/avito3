@@ -6,14 +6,14 @@ import com.amr.project.model.entity.Item;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper(uses = ItemMapper.class)
-public interface ItemSetMapper {
+public interface ItemListMapper {
 
-    ItemSetMapper INSTANCE = Mappers.getMapper(ItemSetMapper.class);
+    ItemListMapper INSTANCE = Mappers.getMapper(ItemListMapper.class);
 
-    Set<ItemDTO> toDTOSet(Set<Item> items);
+    List<ItemDTO> toDTOList(List<Item> items);
 
-    Set<Item> toEntitySet(Set<ItemDTO> itemDTOS);
+    List<Item> toEntityList(List<ItemDTO> itemDTOS);
 }

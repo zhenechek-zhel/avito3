@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -42,7 +43,7 @@ public class Address {
                     CascadeType.DETACH},
             orphanRemoval = true
     )
-    private Set<User> users;
+    private List<User> users;
 
 
     @OneToMany(
@@ -53,11 +54,11 @@ public class Address {
                     CascadeType.DETACH},
             orphanRemoval = true
     )
-    private Set<Shop> shops;
+    private List<Shop> shops;
 
 
     @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true,
             mappedBy = "address")
-    private Set<Order> orders;
+    private List<Order> orders;
 }

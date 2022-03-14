@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 
@@ -20,5 +21,5 @@ public class CartItemDTO {
 
 
     private ShopDTO shopDTO;
-    private Set<ItemDTO> itemListDTO;
+    private List<ItemDTO> itemListDTO;
 }

@@ -6,14 +6,14 @@ import com.amr.project.model.entity.Chat;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper( uses = ChatMapper.class)
-public interface ChatSetMapper {
+public interface ChatListMapper {
 
-    ChatSetMapper INSTANCE = Mappers.getMapper(ChatSetMapper.class);
+    ChatListMapper INSTANCE = Mappers.getMapper(ChatListMapper.class);
 
-    Set<ChatDTO> toDTOSet(Set<Chat> chats);
+    List<ChatDTO> toDTOList(List<Chat> chats);
 
-    Set<Chat> toEntitySet(Set<ChatDTO> chatDTOS);
+    List<Chat> toEntityList(List<ChatDTO> chatDTOS);
 }

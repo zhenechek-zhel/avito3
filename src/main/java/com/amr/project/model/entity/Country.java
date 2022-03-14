@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -29,7 +30,7 @@ public class Country {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private Set<Shop> shops;
+    private List<Shop> shops;
 
     @OneToMany(
             mappedBy = "country",
@@ -38,5 +39,5 @@ public class Country {
                     CascadeType.REFRESH,
                     CascadeType.DETACH},
             orphanRemoval = true)
-    private Set<City> cities;
+    private List<City> cities;
 }

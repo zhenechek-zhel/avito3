@@ -6,15 +6,15 @@ import com.amr.project.model.entity.Shop;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper(uses = ShopMapper.class)
-public interface ShopSetMapper {
+public interface ShopListMapper {
 
-    ShopSetMapper INSTANCE = Mappers.getMapper(ShopSetMapper.class);
+    ShopListMapper INSTANCE = Mappers.getMapper(ShopListMapper.class);
 
 
-    Set<ShopDTO> toDTOSet(Set<Shop> shops);
+    List<ShopDTO> toDTOList(List<Shop> shops);
 
-    Set<Shop> toEntitySet(Set<ShopDTO> shopDTOS);
+    List<Shop> toEntityList(List<ShopDTO> shopDTOS);
 }

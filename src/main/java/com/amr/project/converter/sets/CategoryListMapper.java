@@ -7,15 +7,15 @@ import com.amr.project.model.entity.Category;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper( uses = CategoryMapper.class)
-public interface CategorySetMapper {
+public interface CategoryListMapper {
 
 
-    CategorySetMapper INSTANCE = Mappers.getMapper(CategorySetMapper.class);
+    CategoryListMapper INSTANCE = Mappers.getMapper(CategoryListMapper.class);
 
-    Set<CategoryDTO> toDTOSet(Set<Category> categories);
+    List<CategoryDTO> toDTOList(List<Category> categories);
 
-    Set<Category> toEntitySet(Set<CategoryDTO> categoryDTOS);
+    List<Category> toEntityList(List<CategoryDTO> categoryDTOS);
 }

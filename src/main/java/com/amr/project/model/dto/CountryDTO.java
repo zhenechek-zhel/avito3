@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 
@@ -18,6 +19,6 @@ public class CountryDTO {
     private String name;
 
 
-    private Set<ShopDTO> shopsDTO;
-    private Set<CityDTO> citiesDTO;
+    private List<ShopDTO> shopsDTO;
+    private List<CityDTO> citiesDTO;
 }

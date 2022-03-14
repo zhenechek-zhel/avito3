@@ -9,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -29,16 +30,16 @@ public class UserDTO {
     private UserInfoDTO userInfo;
     private FavoriteDTO favorite;
     private AddressDTO address;
-    private Set<ImageDTO> images;
+    private List<ImageDTO> images;
 
-    private Set<CouponDTO> coupons;
-    private Set<CartItemDTO> cart;
-    private Set<OrderDTO> orders;
-    private Set<ReviewDTO> reviews;
-    private Set<ShopDTO> shops;
-    private Set<DiscountDTO> discounts;
-    private Set<MessageDTO> messages;
-    private Set<ChatDTO> chats;
-    private Set<FeedbackDTO> feedbacks;
+    private List<CouponDTO> coupons;
+    private List<CartItemDTO> cart;
+    private List<OrderDTO> orders;
+    private List<ReviewDTO> reviews;
+    private List<ShopDTO> shops;
+    private List<DiscountDTO> discounts;
+    private List<MessageDTO> messages;
+    private List<ChatDTO> chats;
+    private List<FeedbackDTO> feedbacks;
 
 }

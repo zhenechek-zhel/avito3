@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -55,7 +56,7 @@ public class Order {
     @JoinTable(name = "order_item",
             joinColumns = @JoinColumn(name = "order_id"),
             inverseJoinColumns = @JoinColumn(name = "item_id"))
-    private Set<Item> itemsInOrder;
+    private List<Item> itemsInOrder;
 
 
     @ManyToOne(fetch = FetchType.LAZY)

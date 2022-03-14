@@ -6,14 +6,14 @@ import com.amr.project.model.entity.Feedback;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper(uses = FeedbackMapper.class)
-public interface FeedbackSetMapper {
+public interface FeedbackListMapper {
 
-    FeedbackSetMapper INSTANCE = Mappers.getMapper(FeedbackSetMapper.class);
+    FeedbackListMapper INSTANCE = Mappers.getMapper(FeedbackListMapper.class);
 
-    Set<FeedbackDTO> toDTOSet(Set<Feedback> feedbacks);
+    List<FeedbackDTO> toDTOList(List<Feedback> feedbacks);
 
-    Set<Feedback> toEntitySet(Set<FeedbackDTO> feedbackDTOS);
+    List<Feedback> toEntityList(List<FeedbackDTO> feedbackDTOS);
 }

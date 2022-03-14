@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 
@@ -17,7 +18,7 @@ public class CityDTO {
     private Long id;
     private String name;
 
-    private Set<AddressDTO> addressesDTO;
+    private List<AddressDTO> addressesDTO;
     private CountryDTO countryDTO;
 
     public CityDTO(Long id) {

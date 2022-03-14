@@ -43,7 +43,6 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    @Secured("hasAuthority('ROLE_ADMIN')")
     public void deleteItem(Long id) {
         itemRepository.deleteById(id);
     }

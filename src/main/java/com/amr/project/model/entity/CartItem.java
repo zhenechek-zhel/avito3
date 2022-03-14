@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -40,5 +41,5 @@ public class CartItem {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private Set<Item> itemList;
+    private List<Item> itemList;
 }

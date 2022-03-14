@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
 @Builder
@@ -23,15 +23,15 @@ public class ShopDTO {
 
     private double rating;
     private Country location;
-    private Set<ItemDTO> items;
-    private Set<ReviewDTO> reviews;
+    private List<ItemDTO> items;
+    private List<ReviewDTO> reviews;
     private ImageDTO logo;
     private UserDTO user;
     private CartItemDTO cartItem;
-    private Set<FeedbackDTO> feedbacks;
-    private Set<DiscountDTO> discounts;
-    private Set<FavoriteDTO> favorites;
+    private List<FeedbackDTO> feedbacks;
+    private List<DiscountDTO> discounts;
+    private List<FavoriteDTO> favorites;
     private AddressDTO address;
-    private Set<CouponDTO> coupons;
+    private List<CouponDTO> coupons;
 
 }

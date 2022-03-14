@@ -6,15 +6,15 @@ import com.amr.project.model.entity.UserInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper(uses = UserInfoMapper.class)
-public interface UserInfoSetMapper {
+public interface UserInfoListMapper {
 
-    UserInfoSetMapper INSTANCE = Mappers.getMapper(UserInfoSetMapper.class);
+    UserInfoListMapper INSTANCE = Mappers.getMapper(UserInfoListMapper.class);
 
 
-    Set<UserInfoDTO> toDTOSet(Set<UserInfo> userInfos);
+    List<UserInfoDTO> toDTOList(List<UserInfo> userInfos);
 
-    Set<UserInfo> toEntitySet(Set<UserInfoDTO> userInfoDTOS);
+    List<UserInfo> toEntityList(List<UserInfoDTO> userInfoDTOS);
 }

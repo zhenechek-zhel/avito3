@@ -6,14 +6,14 @@ import com.amr.project.model.entity.Favorite;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper(uses = FavoriteMapper.class)
-public interface FavoriteSetMapper {
+public interface FavoriteListMapper {
 
-    FavoriteSetMapper INSTANCE = Mappers.getMapper(FavoriteSetMapper.class);
+    FavoriteListMapper INSTANCE = Mappers.getMapper(FavoriteListMapper.class);
 
-    Set<Favorite> toEntitySet(Set<FavoriteDTO> dtos);
+    List<Favorite> toEntityList(List<FavoriteDTO> dtos);
 
-    Set<FavoriteDTO> toDTOSet(Set<Favorite> entities);
+    List<FavoriteDTO> toDTOList(List<Favorite> entities);
 }

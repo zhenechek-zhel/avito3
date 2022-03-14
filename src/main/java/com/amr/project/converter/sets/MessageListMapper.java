@@ -6,14 +6,14 @@ import com.amr.project.model.entity.Message;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper(uses = MessageMapper.class)
-public interface MessageSetMapper {
+public interface MessageListMapper {
 
-    MessageSetMapper INSTANCE = Mappers.getMapper(MessageSetMapper.class);
+    MessageListMapper INSTANCE = Mappers.getMapper(MessageListMapper.class);
 
-    Set<MessageDTO> toDTOSet(Set<Message> messages);
+    List<MessageDTO> toDTOList(List<Message> messages);
 
-    Set<Message> toEntitySet(Set<MessageDTO> messageDTOS);
+    List<Message> toEntityList(List<MessageDTO> messageDTOS);
 }

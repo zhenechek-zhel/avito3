@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -32,7 +33,7 @@ public class City {
                     CascadeType.DETACH},
             orphanRemoval = true
     )
-    private Set<Address> addresses;
+    private List<Address> addresses;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Country country;

@@ -7,15 +7,15 @@ import com.amr.project.model.entity.Address;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper(uses = AddressMapper.class)
-public interface AddressSetMapper {
+public interface AddressListMapper {
 
-    AddressSetMapper INSTANCE = Mappers.getMapper(AddressSetMapper.class);
+    AddressListMapper INSTANCE = Mappers.getMapper(AddressListMapper.class);
 
-    Set<AddressDTO> toDTOSet(Set<Address> addresses);
+    List<AddressDTO> toDTOList(List<Address> addresses);
 
-    Set<Address> toEntitySet(Set<AddressDTO> addressDTOS);
+    List<Address> toEntityList(List<AddressDTO> addressDTOS);
 
 }

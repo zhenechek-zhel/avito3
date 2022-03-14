@@ -4,7 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Set;
+import java.util.List;
 
 @Builder
 @Entity
@@ -50,7 +50,7 @@ public class Item {
             cascade = CascadeType.ALL,
             orphanRemoval = true)
     @JoinColumn(name = "item_id")
-    private Set<Image> images;
+    private List<Image> images;
 
 
     @OneToMany(
@@ -58,15 +58,15 @@ public class Item {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private Set<Review> reviews;
+    private List<Review> reviews;
 
 
     @ManyToMany(mappedBy = "items")
-    private Set<Favorite> favorites;
+    private List<Favorite> favorites;
 
 
     @ManyToMany(mappedBy = "itemsInOrder")
-    private Set<Order> orders;
+    private List<Order> orders;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Shop shop;
@@ -76,4 +76,13 @@ public class Item {
     private boolean isModerateAccept;
     private String moderatedRejectReason;
     private boolean isPretendedToBeDeleted;
+
+
+    public boolean isPretendedToBeDeleted() {
+        return isPretendedToBeDeleted;
+    }
+
+    public void setPretendedToBeDeleted(boolean pretendedToBeDeleted) {
+        isPretendedToBeDeleted = pretendedToBeDeleted;
+    }
 }

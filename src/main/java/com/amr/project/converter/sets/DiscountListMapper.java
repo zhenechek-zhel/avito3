@@ -6,14 +6,14 @@ import com.amr.project.model.entity.Discount;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper(uses = DiscountMapper.class)
-public interface DiscountSetMapper {
+public interface DiscountListMapper {
 
-    DiscountSetMapper INSTANCE = Mappers.getMapper(DiscountSetMapper.class);
+    DiscountListMapper INSTANCE = Mappers.getMapper(DiscountListMapper.class);
 
-    Set<DiscountDTO> toDTOSet(Set<Discount> discounts);
+    List<DiscountDTO> toDTOList(List<Discount> discounts);
 
-    Set<Discount> toEntitySet(Set<DiscountDTO> discountDTOS);
+    List<Discount> toEntityList(List<DiscountDTO> discountDTOS);
 }

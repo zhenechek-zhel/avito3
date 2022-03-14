@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 
@@ -20,7 +21,7 @@ public class AddressDTO {
 
 
     private CityDTO cityDTO;
-    private Set<UserDTO> usersDTO;
-    private Set<ShopDTO> shopsDTO;
-    private Set<OrderDTO> ordersDTO;
+    private List<UserDTO> usersDTO;
+    private List<ShopDTO> shopsDTO;
+    private List<OrderDTO> ordersDTO;
 }

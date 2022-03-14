@@ -6,14 +6,15 @@ import com.amr.project.model.entity.Coupon;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
 import java.util.Set;
 
 @Mapper(uses = CouponMapper.class)
-public interface CouponSetMapper {
+public interface CouponListMapper {
 
-    CouponSetMapper INSTANCE = Mappers.getMapper(CouponSetMapper.class);
+    CouponListMapper INSTANCE = Mappers.getMapper(CouponListMapper.class);
 
-    Set<CouponDTO> toDTOSet(Set<Coupon> coupons);
+    List<CouponDTO> toDTOList(List<Coupon> coupons);
 
-    Set<Coupon> toEntitySet(Set<CouponDTO> couponDTO);
+    List<Coupon> toEntityList(Set<CouponDTO> couponDTO);
 }

@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 
@@ -16,7 +17,7 @@ public class FavoriteDTO {
 
     private Long id;
 
-    private Set<ShopDTO> shopsDTO;
-    private Set<ItemDTO> itemsDTO;
+    private List<ShopDTO> shopsDTO;
+    private List<ItemDTO> itemsDTO;
     private UserDTO userDTO;
 }
