@@ -1,4 +1,4 @@
-package com.amr.project.converter.sets;
+package com.amr.project.converter.lists;
 
 import com.amr.project.converter.mappers.ShopMapper;
 import com.amr.project.model.dto.ShopDTO;

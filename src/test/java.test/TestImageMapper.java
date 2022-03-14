@@ -1,26 +1,8 @@
-
-import com.amr.project.converter.mappers.CityMapper;
-
-import com.amr.project.converter.mappers.UserMapper;
-import com.amr.project.converter.mappers.UserMapperImpl;
-import com.amr.project.converter.sets.ItemSetMapper;
-import com.amr.project.converter.sets.ItemSetMapperImpl;
-import com.amr.project.converter.sets.UserSetMapper;
-import com.amr.project.converter.sets.UserSetMapperImpl;
-import com.amr.project.model.dto.CityDTO;
-import com.amr.project.model.entity.City;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
+import com.amr.project.converter.lists.ItemSetMapper;
+import com.amr.project.converter.lists.UserSetMapper;
 import org.springframework.boot.test.context.SpringBootTest;
-import java.io.IOException;
+
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
 
 @SpringBootTest
 public class TestImageMapper {
