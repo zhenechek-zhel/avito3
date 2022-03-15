@@ -1,7 +1,7 @@
 package com.amr.project.service.impl;
 
 import com.amr.project.converter.mappers.CategoryMapper;
-import com.amr.project.dao.abstracts.CategoryRepository;
+import com.amr.project.dao.CategoryRepository;
 import com.amr.project.model.dto.CategoryDTO;
 import com.amr.project.model.entity.Category;
 import com.amr.project.service.abstracts.CategoryService;

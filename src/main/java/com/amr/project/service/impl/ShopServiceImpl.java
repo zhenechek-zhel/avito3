@@ -1,6 +1,6 @@
 package com.amr.project.service.impl;
 
-import com.amr.project.dao.abstracts.ShopRepository;
+import com.amr.project.dao.ShopRepository;
 import com.amr.project.model.entity.Shop;
 import com.amr.project.service.abstracts.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
