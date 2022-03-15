@@ -1,7 +1,7 @@
 package com.amr.project.service.impl;
 
 import com.amr.project.converter.mappers.CouponMapper;
-import com.amr.project.dao.abstracts.CouponRepository;
+import com.amr.project.dao.CouponRepository;
 import com.amr.project.model.dto.CouponDTO;
 import com.amr.project.model.entity.Coupon;
 import com.amr.project.service.abstracts.CouponService;

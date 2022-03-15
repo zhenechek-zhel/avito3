@@ -1,7 +1,7 @@
 package com.amr.project.service.impl;
 
 import com.amr.project.converter.mappers.DiscountMapper;
-import com.amr.project.dao.abstracts.DiscountRepository;
+import com.amr.project.dao.DiscountRepository;
 import com.amr.project.model.dto.DiscountDTO;
 import com.amr.project.model.entity.Discount;
 import com.amr.project.service.abstracts.DiscountService;

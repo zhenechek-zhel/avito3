@@ -1,7 +1,7 @@
 package com.amr.project.service.impl;
 
 import com.amr.project.converter.mappers.FavoriteMapper;
-import com.amr.project.dao.abstracts.FavoriteRepository;
+import com.amr.project.dao.FavoriteRepository;
 import com.amr.project.model.dto.FavoriteDTO;
 import com.amr.project.model.entity.Favorite;
 import com.amr.project.service.abstracts.FavoriteService;

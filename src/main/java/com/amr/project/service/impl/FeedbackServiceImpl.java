@@ -1,7 +1,7 @@
 package com.amr.project.service.impl;
 
 import com.amr.project.converter.mappers.FeedbackMapper;
-import com.amr.project.dao.abstracts.FeedbackRepository;
+import com.amr.project.dao.FeedbackRepository;
 import com.amr.project.model.dto.FeedbackDTO;
 import com.amr.project.model.entity.Feedback;
 import com.amr.project.service.abstracts.FeedbackService;

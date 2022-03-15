@@ -1,12 +1,11 @@
 package com.amr.project.service.impl;
 
 import com.amr.project.converter.mappers.ImageMapper;
-import com.amr.project.dao.abstracts.ImageRepository;
+import com.amr.project.dao.ImageRepository;
 import com.amr.project.model.dto.ImageDTO;
 import com.amr.project.model.entity.Image;
 import com.amr.project.service.abstracts.ImageService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
