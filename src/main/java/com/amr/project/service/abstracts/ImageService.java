@@ -5,13 +5,13 @@ import com.amr.project.model.dto.ImageDTO;
 import java.util.List;
 
 public interface ImageService {
-    List<ImageDTO> getAllItems();
+    List<ImageDTO> getAllImages();
 
-    ImageDTO getItemById(Long id);
+    ImageDTO getImageById(Long id);
 
-    void saveItem(ImageDTO imageDTO);
+    void saveImage(ImageDTO imageDTO);
 
-    void updateItem(ImageDTO imageDTO);
+    void updateImage(ImageDTO imageDTO);
 
-    void deleteItem(Long id);
+    void deleteImage(Long id);
 }

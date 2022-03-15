@@ -5,13 +5,13 @@ import com.amr.project.model.dto.FavoriteDTO;
 import java.util.List;
 
 public interface FavoriteService {
-    List<FavoriteDTO> getAllItems();
+    List<FavoriteDTO> getAllFavorites();
 
-    FavoriteDTO getItemById(Long id);
+    FavoriteDTO getFavoriteById(Long id);
 
-    void saveItem(FavoriteDTO favoriteDTO);
+    void saveFavorite(FavoriteDTO favoriteDTO);
 
-    void updateItem(FavoriteDTO favoriteDTO);
+    void updateFavorite(FavoriteDTO favoriteDTO);
 
-    void deleteItem(Long id);
+    void deleteFavorite(Long id);
 }

@@ -5,13 +5,13 @@ import com.amr.project.model.dto.CouponDTO;
 import java.util.List;
 
 public interface CouponService {
-    List<CouponDTO> getAllItems();
+    List<CouponDTO> getAllCoupons();
 
-    CouponDTO getItemById(Long id);
+    CouponDTO getCouponById(Long id);
 
-    void saveItem(CouponDTO couponDTO);
+    void saveCoupon(CouponDTO couponDTO);
 
-    void updateItem(CouponDTO couponDTO);
+    void updateCoupon(CouponDTO couponDTO);
 
-    void deleteItem(Long id);
+    void deleteCoupon(Long id);
 }

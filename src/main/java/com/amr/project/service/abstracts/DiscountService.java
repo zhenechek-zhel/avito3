@@ -5,13 +5,13 @@ import com.amr.project.model.dto.DiscountDTO;
 import java.util.List;
 
 public interface DiscountService {
-    List<DiscountDTO> getAllItems();
+    List<DiscountDTO> getAllDiscounts();
 
-    DiscountDTO getItemById(Long id);
+    DiscountDTO getDiscountById(Long id);
 
-    void saveItem(DiscountDTO discountDTO);
+    void saveDiscount(DiscountDTO discountDTO);
 
-    void updateItem(DiscountDTO discountDTO);
+    void updateDiscount(DiscountDTO discountDTO);
 
-    void deleteItem(Long id);
+    void deleteDiscount(Long id);
 }

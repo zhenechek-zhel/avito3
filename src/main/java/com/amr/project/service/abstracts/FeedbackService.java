@@ -5,13 +5,13 @@ import com.amr.project.model.dto.FeedbackDTO;
 import java.util.List;
 
 public interface FeedbackService {
-    List<FeedbackDTO> getAllItems();
+    List<FeedbackDTO> getAllFeedbacks();
 
-    FeedbackDTO getItemById(Long id);
+    FeedbackDTO getFeedbackById(Long id);
 
-    void saveItem(FeedbackDTO feedbackDTO);
+    void saveFeedback(FeedbackDTO feedbackDTO);
 
-    void updateItem(FeedbackDTO feedbackDTO);
+    void updateFeedback(FeedbackDTO feedbackDTO);
 
-    void deleteItem(Long id);
+    void deleteFeedback(Long id);
 }
