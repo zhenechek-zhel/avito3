@@ -16,4 +16,6 @@ public interface ItemService {
     void updateItem(ItemDTO itemDTO);
 
     void deleteItem(Long id);
+
+    List<Item> findFirst4ByOrderByRatingAsc();
 }
