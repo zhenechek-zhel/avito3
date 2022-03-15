@@ -5,11 +5,16 @@ import com.amr.project.model.entity.Discount;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(uses = ShopMapper.class)
+import java.util.List;
+
+@Mapper(componentModel = "spring", uses = ShopMapper.class)
 public interface DiscountMapper {
-    DiscountMapper INSTANCE = Mappers.getMapper(DiscountMapper.class);
 
     DiscountDTO toDTO(Discount discount);
 
     Discount toEntity(DiscountDTO discountDTO);
+
+    List<DiscountDTO> toDTOList(List<Discount> discounts);
+
+    List<Discount> toEntityList(List<DiscountDTO> discountDTOS);
 }

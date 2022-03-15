@@ -9,17 +9,22 @@ import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(uses = UserMapper.class)
+import java.util.List;
+
+@Mapper(componentModel = "spring", uses = UserMapper.class)
 public interface UserInfoMapper {
-    UserInfoMapper INSTANCE = Mappers.getMapper(UserInfoMapper.class);
 
     UserInfoDTO toDTO(UserInfo userInfo);
 
     UserInfo toEntity(UserInfoDTO userInfoDTO);
 
+    List<UserInfoDTO> toDTOList(List<UserInfo> userInfos);
 
-    @InheritInverseConfiguration
-    Gender genderDtoToGender(GenderDTO genderDTO);
+    List<UserInfo> toEntityList(List<UserInfoDTO> userInfoDTOS);
+
+
+    /*@InheritInverseConfiguration
+    Gender genderDtoToGender(GenderDTO genderDTO)*/;
 
 
 }

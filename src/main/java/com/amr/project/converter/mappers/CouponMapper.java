@@ -5,11 +5,17 @@ import com.amr.project.model.entity.Coupon;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(uses = UserMapper.class)
+import java.util.List;
+import java.util.Set;
+
+@Mapper(componentModel = "spring", uses = UserMapper.class)
 public interface CouponMapper {
-    CouponMapper INSTANCE = Mappers.getMapper(CouponMapper.class);
 
     CouponDTO toDTO(Coupon coupon);
 
     Coupon toEntity(CouponDTO couponDTO);
+
+    List<CouponDTO> toDTOList(List<Coupon> coupons);
+
+    List<Coupon> toEntityList(List<CouponDTO> couponDTO);
 }

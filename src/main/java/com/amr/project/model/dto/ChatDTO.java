@@ -17,7 +17,7 @@ public class ChatDTO {
     private Long id;
     private Long hash;
 
-    private List<MessageDTO> messagesDTO;
-    private List<UserDTO> usersDTO;
+    private List<MessageDTO> messages;
+    private List<UserDTO> users;
 
 }

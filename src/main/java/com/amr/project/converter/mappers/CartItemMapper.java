@@ -5,11 +5,16 @@ import com.amr.project.model.entity.CartItem;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(uses = {UserMapper.class, ShopMapper.class, ItemMapper.class})
+import java.util.List;
+
+@Mapper(componentModel = "spring", uses = {UserMapper.class, ShopMapper.class, ItemMapper.class})
 public interface CartItemMapper {
-    CartItemMapper INSTANCE = Mappers.getMapper(CartItemMapper.class);
 
     CartItemDTO toDTO(CartItem cartItem);
 
     CartItem toEntity(CartItemDTO cartItemDto);
+
+    List<CartItemDTO> toDTOList(List<CartItem> cartItems);
+
+    List<CartItem> toEntityList(List<CartItemDTO> cartItemDTOS);
 }

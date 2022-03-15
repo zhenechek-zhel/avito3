@@ -17,7 +17,6 @@ import java.util.Set;
 @NoArgsConstructor
 public class Chat {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

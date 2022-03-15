@@ -1,7 +1,6 @@
 package com.amr.project.webapp.controller;
 
 import com.amr.project.converter.mappers.ItemMapper;
-import com.amr.project.converter.lists.ItemListMapper;
 import com.amr.project.model.dto.ItemDTO;
 import com.amr.project.model.entity.Item;
 import com.amr.project.service.abstracts.ItemService;
@@ -18,8 +17,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.List;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
@@ -34,27 +33,27 @@ public class ItemController {
     private static final String GET_ITEM_LOG = "Item:{} is get";
 
 
-
-
     private final ItemService itemService;
+    private final ItemMapper itemMapper;
 
     @Autowired
-    public ItemController(ItemService itemService) {
+    public ItemController(ItemService itemService, ItemMapper itemMapper) {
         this.itemService = itemService;
+        this.itemMapper = itemMapper;
     }
 
     @GetMapping("/items")
     public ResponseEntity<List<ItemDTO>> getAllItems() {
         List<Item> items = itemService.getAllItems();
 
-        List<ItemDTO> itemDTOS = ItemListMapper.INSTANCE.toDTOList(items);
+        List<ItemDTO> itemDTOS = itemMapper.toDTOList(items);
         logger.info(GET_ITEM_LOG);
         return new ResponseEntity<>(itemDTOS, HttpStatus.OK);
     }
 
     @GetMapping("/items/{id}")
     public ResponseEntity<ItemDTO> getItem(@PathVariable(name = "id") Long id) {
-        ItemDTO itemDTO = ItemMapper.INSTANCE.toDTO(itemService.getItemById(id));
+        ItemDTO itemDTO = itemMapper.toDTO(itemService.getItemById(id));
         return new ResponseEntity<>(itemDTO, HttpStatus.OK);
     }
 
@@ -66,12 +65,11 @@ public class ItemController {
                     content = @Content(mediaType = APPLICATION_JSON_VALUE,
                             schema = @Schema(implementation = ItemDTO.class)))
     })
-
     @PostMapping("/items")
     public ResponseEntity<ItemDTO> addItem(@RequestBody ItemDTO itemDTO) {
-        Item item = ItemMapper.INSTANCE.toEntity(itemDTO);
+        Item item = itemMapper.toEntity(itemDTO);
         itemService.saveItem(item);
-        ItemDTO dto = ItemMapper.INSTANCE.toDTO(item);
+        ItemDTO dto = itemMapper.toDTO(item);
         logger.info(NEW_ITEM_LOG, dto.toString());
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
     }
@@ -93,9 +91,9 @@ public class ItemController {
     public ResponseEntity<ItemDTO> editItem(
             @PathVariable(name = "id") Long id,
             @RequestBody ItemDTO itemDTO) {
-        Item item = ItemMapper.INSTANCE.toEntity(itemDTO);
+        Item item = itemMapper.toEntity(itemDTO);
         itemService.updateItem(item);
-        ItemDTO dto = ItemMapper.INSTANCE.toDTO(item);
+        ItemDTO dto = itemMapper.toDTO(item);
         logger.info(ITEM_UPDATED_LOG, dto.toString());
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
@@ -142,9 +140,8 @@ public class ItemController {
 
         Item item = itemService.getItemById(id);
         item.setPretendedToBeDeleted(true);
-        ItemDTO itemDTO = ItemMapper.INSTANCE.toDTO(item);
-        logger.info("At pretended to delete");
+        ItemDTO itemDTO = itemMapper.toDTO(item);
+        logger.info("Item {id} marked as pretended to delete");
         return new ResponseEntity<>(itemDTO, HttpStatus.OK);
-
     }
 }

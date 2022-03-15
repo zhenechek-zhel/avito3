@@ -1,17 +1,19 @@
 package com.amr.project.converter.mappers;
 
-import com.amr.project.converter.lists.ShopListMapper;
-import com.amr.project.converter.lists.CityListMapper;
 import com.amr.project.model.dto.CountryDTO;
 import com.amr.project.model.entity.Country;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 
-@Mapper(uses = {CityListMapper.class, ShopListMapper.class})
+import java.util.List;
+
+@Mapper(componentModel = "spring", uses = {CityMapper.class, ShopMapper.class})
 public interface CountryMapper {
-    CountryMapper INSTANCE = Mappers.getMapper(CountryMapper.class);
 
     CountryDTO toDTO(Country country);
 
     Country toEntity(CountryDTO countryDTO);
+
+    List<CountryDTO> toDTOList(List<Country> countries);
+
+    List<Country> toEntityList(List<CountryDTO> countryDTOS);
 }

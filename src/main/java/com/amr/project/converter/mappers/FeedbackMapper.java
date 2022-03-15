@@ -5,11 +5,16 @@ import com.amr.project.model.entity.Feedback;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(uses = {ShopMapper.class, UserMapper.class})
+import java.util.List;
+
+@Mapper(componentModel = "spring", uses = {ShopMapper.class, UserMapper.class})
 public interface FeedbackMapper {
-    FeedbackMapper INSTANCE = Mappers.getMapper(FeedbackMapper.class);
 
     FeedbackDTO toDTO(Feedback feedback);
 
     Feedback toEntity(FeedbackDTO feedbackDTO);
+
+    List<FeedbackDTO> toDTOList(List<Feedback> feedbacks);
+
+    List<Feedback> toEntityList(List<FeedbackDTO> feedbackDTOS);
 }
