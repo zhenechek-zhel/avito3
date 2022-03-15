@@ -33,7 +33,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void saveCategory(CategoryDTO itemDTO) {
         Category category = categoryMapper.toEntity(itemDTO);
-        //categoryRepository.saveAllAndFlush(category);
+        categoryRepository.saveAllAndFlush(category);
     }
 
     @Override
