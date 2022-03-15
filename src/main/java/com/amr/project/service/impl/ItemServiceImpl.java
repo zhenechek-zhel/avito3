@@ -2,7 +2,7 @@ package com.amr.project.service.impl;
 
 import com.amr.project.converter.mappers.ItemMapper;
 import com.amr.project.dao.ItemRepository;
-import com.amr.project.model.dto.ItemDTO;
+import com.amr.project.model.dto.ItemDto;
 import com.amr.project.model.entity.Item;
 import com.amr.project.service.abstracts.ItemService;
 import lombok.RequiredArgsConstructor;
@@ -19,25 +19,25 @@ public class ItemServiceImpl implements ItemService {
 
 
     @Override
-    public List<ItemDTO> getAllItems() {
+    public List<ItemDto> getAllItems() {
         List<Item> items = itemRepository.findAll();
-        return itemMapper.toDTOList(items);
+        return itemMapper.toDtoList(items);
     }
 
     @Override
-    public ItemDTO getItemById(Long id) {
+    public ItemDto getItemById(Long id) {
         Item item = itemRepository.getById(id);
-        return itemMapper.toDTO(item);
+        return itemMapper.toDto(item);
     }
 
     @Override
-    public void saveItem(ItemDTO itemDTO) {
+    public void saveItem(ItemDto itemDTO) {
        Item item = itemMapper.toEntity(itemDTO);
        itemRepository.saveAndFlush(item);
     }
 
     @Override
-    public void updateItem(ItemDTO itemDTO) {
+    public void updateItem(ItemDto itemDTO) {
         Item item = itemMapper.toEntity(itemDTO);
         itemRepository.saveAndFlush(item);
     }

@@ -2,7 +2,7 @@ package com.amr.project.service.impl;
 
 import com.amr.project.converter.mappers.CartItemMapper;
 import com.amr.project.dao.CartItemRepository;
-import com.amr.project.model.dto.CartItemDTO;
+import com.amr.project.model.dto.CartItemDto;
 import com.amr.project.model.entity.CartItem;
 import com.amr.project.service.abstracts.CartItemService;
 import lombok.RequiredArgsConstructor;
@@ -19,25 +19,25 @@ public class CartItemServiceImpl implements CartItemService {
     private final CartItemRepository cartItemRepository;
 
     @Override
-    public List<CartItemDTO> getAllCartItems() {
+    public List<CartItemDto> getAllCartItems() {
         List<CartItem> cartItems = cartItemRepository.findAll();
-        return cartItemMapper.toDTOList(cartItems);
+        return cartItemMapper.toDtoList(cartItems);
     }
 
     @Override
-    public CartItemDTO getCartItemsById(Long id) {
+    public CartItemDto getCartItemsById(Long id) {
         CartItem cartItem = cartItemRepository.getById(id);
-        return cartItemMapper.toDTO(cartItem);
+        return cartItemMapper.toDto(cartItem);
     }
 
     @Override
-    public void saveCartItem(CartItemDTO cartItemDTO) {
+    public void saveCartItem(CartItemDto cartItemDTO) {
         CartItem cartItem = cartItemMapper.toEntity(cartItemDTO);
         cartItemRepository.saveAndFlush(cartItem);
     }
 
     @Override
-    public void updateCartItem(CartItemDTO cartItemDTO) {
+    public void updateCartItem(CartItemDto cartItemDTO) {
         CartItem cartItem = cartItemMapper.toEntity(cartItemDTO);
         cartItemRepository.saveAndFlush(cartItem);
     }

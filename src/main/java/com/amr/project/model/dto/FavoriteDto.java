@@ -6,18 +6,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Set;
 
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FavoriteDTO {
+public class FavoriteDto {
 
     private Long id;
 
-    private List<ShopDTO> shops;
-    private List<ItemDTO> items;
-    private UserDTO user;
+    private List<ShopDto> shops;
+    private List<ItemDto> items;
+    private UserDto user;
 }

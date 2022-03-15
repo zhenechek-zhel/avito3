@@ -1,19 +1,19 @@
 package com.amr.project.service.abstracts;
 
-import com.amr.project.model.dto.UserInfoDTO;
+import com.amr.project.model.dto.UserInfoDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public interface UserInfoService {
-    List<UserInfoDTO> getAllUserInfo();
+    List<UserInfoDto> getAllUserInfo();
 
-    UserInfoDTO getUserInfoById(Long id);
+    UserInfoDto getUserInfoById(Long id);
 
-    void saveUserInfo(UserInfoDTO userInfoDTO);
+    void saveUserInfo(UserInfoDto userInfoDTO);
 
-    void updateUserInfo(UserInfoDTO userInfoDTO);
+    void updateUserInfo(UserInfoDto userInfoDTO);
 
     void deleteUserInfo(Long id);
 }

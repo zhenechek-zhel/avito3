@@ -5,22 +5,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
+import java.util.List;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+public class ChatDto {
 
-public class MessageDTO {
     private Long id;
-    private Date date;
-    private String textMessage;
-    private boolean viewed;
+    private Long hash;
 
-
-    private UserDTO user;
-    private ChatDTO chat;
+    private List<MessageDto> messages;
+    private List<UserDto> users;
 
 }

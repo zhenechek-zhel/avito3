@@ -6,19 +6,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Set;
 
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-public class CountryDTO {
+public class CountryDto {
 
     private Long id;
     private String name;
 
 
-    private List<ShopDTO> shops;
-    private List<CityDTO> cities;
+    private List<ShopDto> shops;
+    private List<CityDto> cities;
 }

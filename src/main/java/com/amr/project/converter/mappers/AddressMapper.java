@@ -1,9 +1,8 @@
 package com.amr.project.converter.mappers;
 
-import com.amr.project.model.dto.AddressDTO;
+import com.amr.project.model.dto.AddressDto;
 import com.amr.project.model.entity.Address;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
@@ -11,11 +10,11 @@ import java.util.List;
         UserMapper.class, ShopMapper.class, OrderMapper.class})
 public interface AddressMapper {
 
-    AddressDTO toDTO(Address address);
+    AddressDto toDto(Address address);
 
-    Address toEntity(AddressDTO addressDTO);
+    Address toEntity(AddressDto addressDto);
 
-    List<AddressDTO> toDTOList(List<Address> addresses);
+    List<AddressDto> toDtoList(List<Address> addresses);
 
-    List<Address> toEntityList(List<AddressDTO> addressDTOS);
+    List<Address> toEntityList(List<AddressDto> addressDtos);
 }

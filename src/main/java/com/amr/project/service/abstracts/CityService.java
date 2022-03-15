@@ -1,18 +1,18 @@
 package com.amr.project.service.abstracts;
 
-import com.amr.project.model.dto.CityDTO;
+import com.amr.project.model.dto.CityDto;
 
 import java.util.List;
 
 public interface CityService {
 
-    List<CityDTO> getAllCities();
+    List<CityDto> getAllCities();
 
-    CityDTO getCityById(Long id);
+    CityDto getCityById(Long id);
 
-    void saveCity(CityDTO cityDTO);
+    void saveCity(CityDto cityDTO);
 
-    void updateCity(CityDTO cityDTO);
+    void updateCity(CityDto cityDTO);
 
     void deleteCity(Long id);
 }

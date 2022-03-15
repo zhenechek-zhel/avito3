@@ -7,19 +7,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Set;
 
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CartItemDTO {
+public class CartItemDto {
     private Long id;
     private int quantity;
     private User user;
 
 
-    private ShopDTO shop;
-    private List<ItemDTO> itemList;
+    private ShopDto shop;
+    private List<ItemDto> itemList;
 }

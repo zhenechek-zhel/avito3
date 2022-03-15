@@ -1,19 +1,18 @@
 package com.amr.project.service.abstracts;
 
-import com.amr.project.model.entity.Shop;
+import com.amr.project.model.dto.ShopDto;
+
 
 import java.util.List;
+import java.util.Optional;
+
 
 public interface ShopService {
+    void createShop(ShopDto shopDto);
 
-    List<Shop> getAllShops();
+    Optional<ShopDto> loadShop(Long id);
 
-    Shop getShopById(Long id);
+    List<ShopDto> getShops();
 
-    void updateShopById(Shop shop);
-
-    void deleteShopById(Long id);
-
-    void saveShop(Shop shop);
-
+    Optional<ShopDto> updateShop(long id, ShopDto shopDto);
 }

@@ -2,14 +2,9 @@ package com.amr.project.service.impl;
 
 import com.amr.project.converter.mappers.ReviewMapper;
 import com.amr.project.dao.ReviewRepository;
-import com.amr.project.dao.UserRepository;
-import com.amr.project.model.dto.MessageDTO;
-import com.amr.project.model.dto.ReviewDTO;
-import com.amr.project.model.entity.Message;
+import com.amr.project.model.dto.ReviewDto;
 import com.amr.project.model.entity.Review;
-import com.amr.project.model.entity.User;
 import com.amr.project.service.abstracts.ReviewService;
-import com.amr.project.service.abstracts.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,23 +18,23 @@ public class ReviewServiceImpl implements ReviewService {
     private final ReviewMapper reviewMapper;
 
     @Override
-    public List<ReviewDTO> getAllReview() {
+    public List<ReviewDto> getAllReview() {
         return reviewMapper.toDTOList(reviewRepository.findAll());
     }
 
     @Override
-    public ReviewDTO getReviewById(Long id) {
+    public ReviewDto getReviewById(Long id) {
         return reviewMapper.toDTO(reviewRepository.getById(id));
     }
 
     @Override
-    public void saveReview(ReviewDTO reviewDTO) {
+    public void saveReview(ReviewDto reviewDTO) {
         Review review = reviewMapper.toEntity(reviewDTO);
         reviewRepository.saveAndFlush(review);
     }
 
     @Override
-    public void updateReview(ReviewDTO reviewDTO) {
+    public void updateReview(ReviewDto reviewDTO) {
         Review review = reviewMapper.toEntity(reviewDTO);
         reviewRepository.saveAndFlush(review);
     }

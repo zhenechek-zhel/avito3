@@ -1,9 +1,8 @@
 package com.amr.project.converter.mappers;
 
-import com.amr.project.model.dto.UserDTO;
+import com.amr.project.model.dto.UserDto;
 import com.amr.project.model.entity.User;
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 
 import java.util.List;
 
@@ -13,13 +12,13 @@ import java.util.List;
         ReviewMapper.class, UserInfoMapper.class, FavoriteMapper.class, AddressMapper.class})
 public interface UserMapper {
 
-    UserDTO toDTO(User user);
+    UserDto toDto(User user);
 
-    User toEntity(UserDTO userDTO);
+    User toEntity(UserDto userDTO);
 
-    List<UserDTO> toDTOList(List<User> users);
+    List<UserDto> toDtoList(List<User> users);
 
-    List<User> toEntityList(List<UserDTO> userDTOS);
+    List<User> toEntityList(List<UserDto> userDTOS);
 
 }
 

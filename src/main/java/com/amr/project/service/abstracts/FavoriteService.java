@@ -1,17 +1,17 @@
 package com.amr.project.service.abstracts;
 
-import com.amr.project.model.dto.FavoriteDTO;
+import com.amr.project.model.dto.FavoriteDto;
 
 import java.util.List;
 
 public interface FavoriteService {
-    List<FavoriteDTO> getAllFavorites();
+    List<FavoriteDto> getAllFavorites();
 
-    FavoriteDTO getFavoriteById(Long id);
+    FavoriteDto getFavoriteById(Long id);
 
-    void saveFavorite(FavoriteDTO favoriteDTO);
+    void saveFavorite(FavoriteDto favoriteDTO);
 
-    void updateFavorite(FavoriteDTO favoriteDTO);
+    void updateFavorite(FavoriteDto favoriteDTO);
 
     void deleteFavorite(Long id);
 }

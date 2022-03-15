@@ -7,16 +7,20 @@ import lombok.NoArgsConstructor;
 
 import java.util.Calendar;
 
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CouponDTO {
-
+public class UserInfoDto {
     private Long id;
-    private Calendar start;
-    private Calendar end;
 
-    private UserDTO user;
+    private String phone;
+    private String firstName;
+    private String lastName;
+    private int age;
+
+
+    private GenderDto gender;
+    private Calendar birthday;
+    private UserDto user;
 }

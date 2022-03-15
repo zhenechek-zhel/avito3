@@ -1,19 +1,18 @@
 package com.amr.project.service.abstracts;
 
-import com.amr.project.model.dto.CartItemDTO;
-import com.amr.project.model.dto.ChatDTO;
+import com.amr.project.model.dto.ChatDto;
 
 import java.util.List;
 
 public interface ChatService {
 
-    List<ChatDTO> getAllChats();
+    List<ChatDto> getAllChats();
 
-    ChatDTO getChatById(Long id);
+    ChatDto getChatById(Long id);
 
-    void saveChat(ChatDTO chatDTO);
+    void saveChat(ChatDto chatDTO);
 
-    void updateChat(ChatDTO chatDTO);
+    void updateChat(ChatDto chatDTO);
 
     void deleteChat(Long id);
 }

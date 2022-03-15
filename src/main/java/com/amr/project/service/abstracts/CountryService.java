@@ -1,19 +1,18 @@
 package com.amr.project.service.abstracts;
 
-import com.amr.project.model.dto.CountryDTO;
-import com.amr.project.model.dto.CouponDTO;
+import com.amr.project.model.dto.CountryDto;
 
 import java.util.List;
 
 public interface CountryService {
 
-    List<CountryDTO> getAlCountries();
+    List<CountryDto> getAlCountries();
 
-    CountryDTO getCountryById(Long id);
+    CountryDto getCountryById(Long id);
 
-    void saveCountry(CountryDTO countryDTO);
+    void saveCountry(CountryDto countryDTO);
 
-    void updateCountry(CountryDTO countryDTO);
+    void updateCountry(CountryDto countryDTO);
 
     void deleteCountry(Long id);
 }

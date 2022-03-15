@@ -2,7 +2,7 @@ package com.amr.project.service.impl;
 
 import com.amr.project.converter.mappers.FavoriteMapper;
 import com.amr.project.dao.FavoriteRepository;
-import com.amr.project.model.dto.FavoriteDTO;
+import com.amr.project.model.dto.FavoriteDto;
 import com.amr.project.model.entity.Favorite;
 import com.amr.project.service.abstracts.FavoriteService;
 import lombok.RequiredArgsConstructor;
@@ -18,25 +18,25 @@ public class FavoriteServiceImpl implements FavoriteService {
     private final FavoriteMapper favoriteMapper;
 
     @Override
-    public List<FavoriteDTO> getAllFavorites() {
+    public List<FavoriteDto> getAllFavorites() {
         List<Favorite> favorites = favoriteRepository.findAll();
         return favoriteMapper.toDTOList(favorites);
     }
 
     @Override
-    public FavoriteDTO getFavoriteById(Long id) {
+    public FavoriteDto getFavoriteById(Long id) {
         Favorite favorite = favoriteRepository.getById(id);
-        return favoriteMapper.toDTO(favorite);
+        return favoriteMapper.toDto(favorite);
     }
 
     @Override
-    public void saveFavorite(FavoriteDTO favoriteDTO) {
+    public void saveFavorite(FavoriteDto favoriteDTO) {
         Favorite favorite = favoriteMapper.toEntity(favoriteDTO);
         favoriteRepository.saveAndFlush(favorite);
     }
 
     @Override
-    public void updateFavorite(FavoriteDTO favoriteDTO) {
+    public void updateFavorite(FavoriteDto favoriteDTO) {
         Favorite favorite = favoriteMapper.toEntity(favoriteDTO);
         favoriteRepository.saveAndFlush(favorite);
     }

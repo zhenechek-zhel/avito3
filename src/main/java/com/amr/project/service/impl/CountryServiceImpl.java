@@ -2,8 +2,7 @@ package com.amr.project.service.impl;
 
 import com.amr.project.converter.mappers.CountryMapper;
 import com.amr.project.dao.CountryRepository;
-import com.amr.project.model.dto.CountryDTO;
-import com.amr.project.model.entity.City;
+import com.amr.project.model.dto.CountryDto;
 import com.amr.project.model.entity.Country;
 import com.amr.project.service.abstracts.CountryService;
 import lombok.RequiredArgsConstructor;
@@ -19,25 +18,25 @@ public class CountryServiceImpl implements CountryService {
     private final CountryMapper countryMapper;
 
     @Override
-    public List<CountryDTO> getAlCountries() {
+    public List<CountryDto> getAlCountries() {
         List<Country> countries = countryRepository.findAll();
         return countryMapper.toDTOList(countries);
     }
 
     @Override
-    public CountryDTO getCountryById(Long id) {
+    public CountryDto getCountryById(Long id) {
         Country country = countryRepository.getById(id);
-        return countryMapper.toDTO(country);
+        return countryMapper.toDto(country);
     }
 
     @Override
-    public void saveCountry(CountryDTO countryDTO) {
+    public void saveCountry(CountryDto countryDTO) {
         Country country = countryMapper.toEntity(countryDTO);
         countryRepository.saveAndFlush(country);
     }
 
     @Override
-    public void updateCountry(CountryDTO countryDTO) {
+    public void updateCountry(CountryDto countryDTO) {
         Country country = countryMapper.toEntity(countryDTO);
         countryRepository.saveAndFlush(country);
     }
