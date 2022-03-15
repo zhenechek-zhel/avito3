@@ -34,6 +34,7 @@ public class MessageServiceImpl implements MessageService {
         return messageMapper.toDTO(messageRepository.getById(id));
     }
 
+
     @Override
     public void saveMessage(MessageDTO messageDTO) {
         Message message = messageMapper.toEntity((messageDTO));
