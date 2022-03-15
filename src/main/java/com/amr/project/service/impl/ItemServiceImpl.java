@@ -6,6 +6,7 @@ import com.amr.project.model.dto.ItemDTO;
 import com.amr.project.model.entity.Item;
 import com.amr.project.service.abstracts.ItemService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class ItemServiceImpl implements ItemService {
     private final ItemMapper itemMapper;
 
 
+
     @Override
     public List<ItemDTO> getAllItems() {
         List<Item> items = itemRepository.findAll();
@@ -26,18 +28,19 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public ItemDTO getItemById(Long id) {
-         Item item = itemRepository.getById(id);
+        Item item = itemRepository.getById(id);
         return itemMapper.toDTO(item);
     }
 
     @Override
-    public void saveItem(ItemDTO item) {
-       Item item = itemRepository.saveAndFlush(item);
-       return itemMapper.toDTO(itemRepository.saveAndFlush(item));
+    public void saveItem(ItemDTO itemDTO) {
+       Item item = itemMapper.toEntity(itemDTO);
+       itemRepository.saveAndFlush(item);
     }
 
     @Override
-    public void updateItem(Item item) {
+    public void updateItem(ItemDTO itemDTO) {
+        Item item = itemMapper.toEntity(itemDTO);
         itemRepository.saveAndFlush(item);
     }
 

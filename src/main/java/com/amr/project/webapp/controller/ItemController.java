@@ -65,11 +65,9 @@ public class ItemController {
     })
     @PostMapping("/items")
     public ResponseEntity<ItemDTO> addItem(@RequestBody ItemDTO itemDTO) {
-        Item item = itemMapper.toEntity(itemDTO);
-        itemService.saveItem(item);
-        ItemDTO dto = itemMapper.toDTO(item);
-        logger.info(NEW_ITEM_LOG, dto.toString());
-        return new ResponseEntity<>(dto, HttpStatus.CREATED);
+        itemService.saveItem(itemDTO);
+        logger.info(NEW_ITEM_LOG);
+        return new ResponseEntity<>( HttpStatus.CREATED);
     }
 
 
@@ -89,11 +87,9 @@ public class ItemController {
     public ResponseEntity<ItemDTO> editItem(
             @PathVariable(name = "id") Long id,
             @RequestBody ItemDTO itemDTO) {
-        Item item = itemMapper.toEntity(itemDTO);
-        itemService.updateItem(item);
-        ItemDTO dto = itemMapper.toDTO(item);
-        logger.info(ITEM_UPDATED_LOG, dto.toString());
-        return new ResponseEntity<>(dto, HttpStatus.OK);
+        itemService.updateItem(itemDTO);
+        logger.info(ITEM_UPDATED_LOG);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 
@@ -112,7 +108,6 @@ public class ItemController {
     @DeleteMapping("/items/admin/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Long> deleteItem(@PathVariable(name = "id") Long id) {
-        Item item = itemService.getItemById(id);
         itemService.deleteItem(id);
         logger.info("Deleted Item");
         return new ResponseEntity<>(id, HttpStatus.OK);
@@ -135,10 +130,8 @@ public class ItemController {
     @DeleteMapping("/items/user/{id}")
     @PreAuthorize("hasRole('USER') or hasRole('MODERATOR')")
     public ResponseEntity<ItemDTO> deleteAdminItem(@PathVariable(name = "id") Long id) {
-
-        Item item = itemService.getItemById(id);
-        item.setPretendedToBeDeleted(true);
-        ItemDTO itemDTO = itemMapper.toDTO(item);
+        ItemDTO itemDTO = itemService.getItemById(id);
+        itemDTO.setPretendedToBeDeleted(true);
         logger.info("Item {id} marked as pretended to delete");
         return new ResponseEntity<>(itemDTO, HttpStatus.OK);
     }

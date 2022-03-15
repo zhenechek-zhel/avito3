@@ -11,9 +11,9 @@ public interface ItemService {
 
     ItemDTO getItemById(Long id);
 
-    void saveItem(Item item);
+    void saveItem(ItemDTO itemDTO);
 
-    void updateItem(Item item);
+    void updateItem(ItemDTO itemDTO);
 
     void deleteItem(Long id);
 }
