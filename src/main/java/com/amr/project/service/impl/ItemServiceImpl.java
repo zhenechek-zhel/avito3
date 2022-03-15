@@ -18,7 +18,6 @@ public class ItemServiceImpl implements ItemService {
     private final ItemMapper itemMapper;
 
 
-
     @Override
     public List<ItemDTO> getAllItems() {
         List<Item> items = itemRepository.findAll();

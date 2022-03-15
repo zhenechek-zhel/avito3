@@ -1,9 +1,9 @@
 package com.amr.project.converter.mappers;
 
 import com.amr.project.model.dto.MessageDTO;
+import com.amr.project.model.entity.Category;
 import com.amr.project.model.entity.Message;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 

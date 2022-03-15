@@ -10,9 +10,9 @@ import java.util.List;
 
 @Service
 public interface MessageService {
-    List<ItemDTO> getAllMessages();
+    List<MessageDTO> getAllMessages();
 
-    ItemDTO getMessageById(Long id);
+    MessageDTO getMessageById(Long id);
 
     void saveMessage(MessageDTO messageDTO);
 
