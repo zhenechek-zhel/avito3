@@ -15,7 +15,7 @@ public class ImageDTO {
     private byte[] picture;
     private Boolean isMain = false;
 
-    private ShopDTO shopDTO;
+    private ShopDTO shop;
 
 
 }

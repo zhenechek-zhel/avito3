@@ -18,7 +18,7 @@ public class CityDTO {
     private Long id;
     private String name;
 
-    private List<AddressDTO> addressesDTO;
-    private CountryDTO countryDTO;
+    private List<AddressDTO> addresses;
+    private CountryDTO country;
 
 }

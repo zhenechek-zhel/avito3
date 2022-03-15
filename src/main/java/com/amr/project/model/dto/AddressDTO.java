@@ -20,8 +20,8 @@ public class AddressDTO {
     private String house;
 
 
-    private CityDTO cityDTO;
-    private List<UserDTO> usersDTO;
-    private List<ShopDTO> shopsDTO;
-    private List<OrderDTO> ordersDTO;
+    private CityDTO city;
+    private List<UserDTO> users;
+    private List<ShopDTO> shops;
+    private List<OrderDTO> orders;
 }

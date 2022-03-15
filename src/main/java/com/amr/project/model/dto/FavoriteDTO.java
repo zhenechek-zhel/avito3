@@ -17,7 +17,7 @@ public class FavoriteDTO {
 
     private Long id;
 
-    private List<ShopDTO> shopsDTO;
-    private List<ItemDTO> itemsDTO;
-    private UserDTO userDTO;
+    private List<ShopDTO> shops;
+    private List<ItemDTO> items;
+    private UserDTO user;
 }

@@ -20,7 +20,7 @@ public class MessageDTO {
     private boolean viewed;
 
 
-    private UserDTO userDTO;
-    private ChatDTO chatDTO;
+    private UserDTO user;
+    private ChatDTO chat;
 
 }

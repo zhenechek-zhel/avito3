@@ -20,6 +20,6 @@ public class CartItemDTO {
     private User user;
 
 
-    private ShopDTO shopDTO;
-    private List<ItemDTO> itemListDTO;
+    private ShopDTO shop;
+    private List<ItemDTO> itemList;
 }

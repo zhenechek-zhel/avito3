@@ -26,9 +26,9 @@ public class OrderDTO {
 
 
     private StatusDTO status;
-    private UserDTO userDTO;
-    private List<ItemDTO> itemsInOrderDTO;
-    private AddressDTO addressDTO;
+    private UserDTO user;
+    private List<ItemDTO> itemsInOrder;
+    private AddressDTO address;
 
 
 }

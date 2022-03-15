@@ -25,13 +25,13 @@ public class ItemDTO {
     private String description;
     private int discount;
 
-    private CategoryDTO categoryDTO;
-    private CartItemDTO cartItemDTO;
-    private List<ImageDTO> imagesDTO;
-    private List<ReviewDTO> reviewsDTO;
-    private List<FavoriteDTO> favoritesDTO;
-    private List<OrderDTO> ordersDTO;
-    private ShopDTO shopDTO;
+    private CategoryDTO category;
+    private CartItemDTO cartItem;
+    private List<ImageDTO> images;
+    private List<ReviewDTO> reviews;
+    private List<FavoriteDTO> favorites;
+    private List<OrderDTO> orders;
+    private ShopDTO shop;
 
     private boolean isModerated;
     private boolean isModerateAccept;

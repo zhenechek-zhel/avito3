@@ -83,7 +83,7 @@ public class ItemController {
                     description = "Item not found",
                     content = @Content)
     })
-    @PatchMapping("/items/{id}")
+    @PutMapping("/items/{id}")
     public ResponseEntity<ItemDTO> editItem(
             @PathVariable(name = "id") Long id,
             @RequestBody ItemDTO itemDTO) {

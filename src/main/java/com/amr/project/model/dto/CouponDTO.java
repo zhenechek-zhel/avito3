@@ -18,5 +18,5 @@ public class CouponDTO {
     private Calendar start;
     private Calendar end;
 
-    private UserDTO userDTO;
+    private UserDTO user;
 }

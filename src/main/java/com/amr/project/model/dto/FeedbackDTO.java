@@ -19,7 +19,7 @@ public class FeedbackDTO {
     private LocalDateTime dateTime;
     private String username;
 
-    private ShopDTO shopDTO;
-    private UserDTO userDTO;
+    private ShopDTO shop;
+    private UserDTO user;
 
 }

@@ -17,7 +17,7 @@ public class DiscountDTO {
     private Integer percentage;
     private Integer fixedDiscount;
 
-    private ShopDTO shopDTO;
+    private ShopDTO shop;
 
 
 }

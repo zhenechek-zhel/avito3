@@ -19,6 +19,6 @@ public class CountryDTO {
     private String name;
 
 
-    private List<ShopDTO> shopsDTO;
-    private List<CityDTO> citiesDTO;
+    private List<ShopDTO> shops;
+    private List<CityDTO> cities;
 }
