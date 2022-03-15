@@ -31,18 +31,19 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void saveCategory(CategoryDTO itemDTO) {
-        Category category = categoryMapper.toEntity(itemDTO);
-        categoryRepository.saveAllAndFlush(category);
+    public void saveCategory(CategoryDTO categoryDTO) {
+        Category category = categoryMapper.toEntity(categoryDTO);
+        categoryRepository.saveAndFlush(category);
     }
 
     @Override
-    public void updateCategory(CategoryDTO itemDTO) {
-
+    public void updateCategory(CategoryDTO categoryDTO) {
+        Category category = categoryMapper.toEntity(categoryDTO);
+        categoryRepository.saveAndFlush(category);
     }
 
     @Override
     public void deleteCategory(Long id) {
-
+        categoryRepository.deleteById(id);
     }
 }
