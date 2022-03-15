@@ -1,6 +1,6 @@
 package com.amr.project.service.impl;
 
-import com.amr.project.dao.abstracts.UserRepository;
+import com.amr.project.dao.UserRepository;
 import com.amr.project.model.entity.User;
 import com.amr.project.service.abstracts.UserService;
 import org.springframework.stereotype.Service;
