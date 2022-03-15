@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,26 +35,23 @@ public class ItemController {
 
 
     private final ItemService itemService;
-    private final ItemMapper itemMapper;
+
 
     @Autowired
-    public ItemController(ItemService itemService, ItemMapper itemMapper) {
+    public ItemController(ItemService itemService) {
         this.itemService = itemService;
-        this.itemMapper = itemMapper;
     }
 
     @GetMapping("/items")
     public ResponseEntity<List<ItemDTO>> getAllItems() {
-        List<Item> items = itemService.getAllItems();
-
-        List<ItemDTO> itemDTOS = itemMapper.toDTOList(items);
+        List<ItemDTO> items = itemService.getAllItems();
         logger.info(GET_ITEM_LOG);
-        return new ResponseEntity<>(itemDTOS, HttpStatus.OK);
+        return new ResponseEntity<>(items, HttpStatus.OK);
     }
 
     @GetMapping("/items/{id}")
     public ResponseEntity<ItemDTO> getItem(@PathVariable(name = "id") Long id) {
-        ItemDTO itemDTO = itemMapper.toDTO(itemService.getItemById(id));
+        ItemDTO itemDTO = itemService.getItemById(id);
         return new ResponseEntity<>(itemDTO, HttpStatus.OK);
     }
 

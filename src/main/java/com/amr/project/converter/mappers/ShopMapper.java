@@ -7,8 +7,8 @@ import org.mapstruct.Mapper;
 import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {CountryMapper.class, ImageMapper.class,
-        UserMapper.class, CartItemMapper.class, CouponMapper.class,
-        AddressMapper.class})
+        UserMapper.class, CartItemMapper.class, CouponMapper.class, ItemMapper.class,
+        AddressMapper.class, FeedbackMapper.class, DiscountMapper.class, FavoriteMapper.class, ReviewMapper.class})
 public interface ShopMapper {
 
     ShopDTO toDTO(Shop shop);

@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
 import javax.annotation.Generated;
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {AddressMapper.class, CouponMapper.class}, injectionStrategy = InjectionStrategy.CONSTRUCTOR)
+@Mapper(componentModel = "spring", uses = {AddressMapper.class, CountryMapper.class})
 public interface CityMapper {
 
     CityDTO toDTO(City city);

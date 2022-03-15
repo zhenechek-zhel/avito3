@@ -7,7 +7,9 @@ import org.mapstruct.ReportingPolicy;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, uses = {OrderMapper.class,
+@Mapper(componentModel = "spring", uses = {OrderMapper.class, FavoriteMapper.class,
+        ImageMapper.class, CountryMapper.class, CartItemMapper.class, ShopMapper.class,
+        DiscountMapper.class, MessageMapper.class, ChatMapper.class, FeedbackMapper.class,
         ReviewMapper.class, UserInfoMapper.class, FavoriteMapper.class, AddressMapper.class})
 public interface UserMapper {
 
@@ -19,7 +21,5 @@ public interface UserMapper {
 
     List<User> toEntityList(List<UserDTO> userDTOS);
 
-    /*@InheritInverseConfiguration
-    Roles rolesDtoToRoles(RolesDTO rolesDTO);*/
 }
 

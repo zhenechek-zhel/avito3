@@ -21,7 +21,4 @@ public class CityDTO {
     private List<AddressDTO> addressesDTO;
     private CountryDTO countryDTO;
 
-    public CityDTO(Long id) {
-        this.id = id;
-    }
 }

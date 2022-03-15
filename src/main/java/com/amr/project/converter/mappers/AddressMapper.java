@@ -7,7 +7,8 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {CityMapper.class, UserMapper.class, ShopMapper.class, OrderMapper.class})
+@Mapper(componentModel = "spring", uses = {CityMapper.class,
+        UserMapper.class, ShopMapper.class, OrderMapper.class})
 public interface AddressMapper {
 
     AddressDTO toDTO(Address address);
