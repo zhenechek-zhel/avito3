@@ -10,6 +10,7 @@ import java.util.List;
         UserMapper.class, ShopMapper.class, OrderMapper.class})
 public interface AddressMapper {
 
+
     AddressDto toDto(Address address);
 
     Address toEntity(AddressDto addressDto);
