@@ -1,15 +1,13 @@
 package com.amr.project.webapp.controller;
 
-import com.amr.project.converter.mappers.ItemMapper;
 import com.amr.project.model.dto.ItemDTO;
-import com.amr.project.model.entity.Item;
 import com.amr.project.service.abstracts.ItemService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import lombok.RequiredArgsConstructor;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +20,7 @@ import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+@Tag(name = "Item Controller", description = "Rest Controller for CRUD operation with Item Entity")
 @RestController
 @RequestMapping("/api")
 public class ItemController {

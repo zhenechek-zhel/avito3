@@ -32,6 +32,7 @@ public class ItemDTO {
     private List<FavoriteDTO> favorites;
     private List<OrderDTO> orders;
     private ShopDTO shop;
+    private UserDTO user;
 
     private boolean isModerated;
     private boolean isModerateAccept;
